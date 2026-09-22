@@ -1,7 +1,8 @@
 import { create } from 'zustand'
+import { getSavedLanguage, setPageLanguage, type SupportedLang } from '@/utils/translator'
 
 export type NavKey = 'home' | 'about' | 'timeline' | 'speakers' | 'gallery' | 'news'
-export type LangType = 'VI' | 'EN'
+export type LangType = SupportedLang
 
 interface UIState {
   activeNav: NavKey
@@ -14,10 +15,10 @@ interface UIState {
   toggleLang: () => void
 }
 
-export const useUIStore = create<UIState>((set) => ({
+export const useUIStore = create<UIState>((set, get) => ({
   activeNav: 'home',
   isMobileMenuOpen: false,
-  currentLang: 'VI',
+  currentLang: getSavedLanguage(),
 
   setActiveNav: (nav: NavKey) => 
     set({ activeNav: nav }),
@@ -28,9 +29,14 @@ export const useUIStore = create<UIState>((set) => ({
   toggleMobileMenu: () => 
     set((state) => ({ isMobileMenuOpen: !state.isMobileMenuOpen })),
 
-  setCurrentLang: (lang: LangType) => 
-    set({ currentLang: lang }),
+  setCurrentLang: (lang: LangType) => {
+    set({ currentLang: lang })
+    setPageLanguage(lang)
+  },
 
-  toggleLang: () => 
-    set((state) => ({ currentLang: state.currentLang === 'VI' ? 'EN' : 'VI' })),
+  toggleLang: () => {
+    const nextLang = get().currentLang === 'VI' ? 'EN' : 'VI'
+    set({ currentLang: nextLang })
+    setPageLanguage(nextLang)
+  },
 }))
