@@ -63,15 +63,16 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
       }`}
     >
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
-        {/* Left: Clean Brand Logo "CNS KHÁNH HÒA" */}
+        {/* Left: Brand Logo & Text */}
         <div className="flex items-center">
-          <a href="#" className="flex items-center group">
+          <a href="/" className="flex items-center gap-3 group">
+            <img src="/logo.png" alt="CNS Khánh Hòa" className="h-12 sm:h-16 w-auto object-contain transition-transform group-hover:scale-105" />
             <span 
-              className={`font-display text-2xl sm:text-3xl font-black tracking-wider transition-colors ${
-                isScrolled ? 'text-slate-950' : 'text-white'
+              className={`font-display text-xl sm:text-2xl font-black tracking-wider transition-colors hidden sm:inline-block ${
+                isScrolled ? 'text-blue-600' : 'text-white'
               }`}
             >
-              CNS <span className="bg-prism-gradient font-black">KHÁNH HÒA</span>
+              CÔNG NGHỆ SỐ
             </span>
           </a>
         </div>
@@ -131,7 +132,10 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
       {isMobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-2xl p-6 flex flex-col justify-between text-white animate-in fade-in">
           <div className="flex items-center justify-between pb-6 border-b border-slate-800">
-            <span className="font-display text-xl font-bold tracking-wider">{header.brandName}</span>
+            <div className="flex items-center gap-3">
+              <img src="/logo.png" alt="CNS Khánh Hòa" className="h-10 w-auto object-contain" />
+              <span className="font-display text-lg font-bold tracking-wider">CÔNG NGHỆ SỐ</span>
+            </div>
             <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-slate-400 hover:text-white">
               <X className="w-6 h-6" />
             </button>
