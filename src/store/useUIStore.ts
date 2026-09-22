@@ -35,7 +35,7 @@ export const useUIStore = create<UIState>((set, get) => ({
   },
 
   toggleLang: () => {
-    const nextLang = get().currentLang === 'VI' ? 'EN' : 'VI'
+    const nextLang = get().currentLang === 'VN' ? 'EN' : 'VN'
     set({ currentLang: nextLang })
     setPageLanguage(nextLang)
   },
