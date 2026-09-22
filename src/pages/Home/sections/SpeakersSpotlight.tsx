@@ -1,10 +1,31 @@
-import { useState } from 'react'
-import { X, Calendar, MapPin, Share2 } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { X } from 'lucide-react'
 import { siteData, type SpeakerItem } from '@/data'
 
 export function SpeakersSpotlight() {
   const { speakers } = siteData
   const [activeSpeakerModal, setActiveSpeakerModal] = useState<SpeakerItem | null>(null)
+
+  // Close modal with ESC key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && activeSpeakerModal) {
+        setActiveSpeakerModal(null)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [activeSpeakerModal])
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (activeSpeakerModal) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [activeSpeakerModal])
 
   return (
     <section id="speakers" className="w-full bg-[#121212] text-white select-none">
@@ -58,88 +79,52 @@ export function SpeakersSpotlight() {
         ))}
       </div>
 
-      {/* Speaker Detail Modal Dialog */}
+      {/* Speaker Video Modal - Slides up from bottom */}
       {activeSpeakerModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
-          <div className="relative w-full max-w-2xl bg-zinc-900 border border-zinc-700 rounded-3xl shadow-2xl overflow-hidden text-white">
-            {/* Modal Close Button */}
+        <div 
+          onClick={() => setActiveSpeakerModal(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          style={{ animation: 'fadeIn 0.2s ease-out' }}
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-6xl mx-4 bg-black rounded-2xl overflow-hidden"
+            style={{ animation: 'slideUp 0.3s ease-out' }}
+          >
+            {/* Close Button */}
             <button
               onClick={() => setActiveSpeakerModal(null)}
-              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/60 hover:bg-white/20 text-slate-300 hover:text-white transition-colors cursor-pointer"
-              aria-label="Close"
+              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/60 hover:bg-white/20 text-slate-400 hover:text-white transition-colors cursor-pointer backdrop-blur-sm"
+              aria-label="Đóng"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="grid grid-cols-1 sm:grid-cols-12 gap-0">
-              {/* Photo Column */}
-              <div className="sm:col-span-5 relative aspect-square sm:aspect-auto sm:h-full bg-black">
-                <img
-                  src={activeSpeakerModal.image}
-                  alt={activeSpeakerModal.name}
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent sm:bg-gradient-to-r" />
-              </div>
-
-              {/* Details Column */}
-              <div className="sm:col-span-7 p-6 sm:p-8 flex flex-col justify-between">
-                <div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
-                    {activeSpeakerModal.category}
-                  </span>
-
-                  <h3 className="text-2xl font-extrabold text-white">
-                    {activeSpeakerModal.name}
-                  </h3>
-                  <p className="text-sm font-semibold text-blue-400 mt-1">
-                    {activeSpeakerModal.role}
-                  </p>
-                  <p className="text-xs text-slate-300 mt-0.5">
-                    {activeSpeakerModal.company}
-                  </p>
-
-                  <div className="mt-5 p-4 rounded-2xl bg-zinc-800/80 border border-zinc-700">
-                    <span className="text-[10px] font-extrabold text-cyan-400 uppercase tracking-widest block mb-1">
-                      CHỦ ĐỀ CHIA SẺ & PHÁT BIỂU
-                    </span>
-                    <p className="text-sm font-medium text-slate-100 italic leading-relaxed">
-                      "{activeSpeakerModal.topic}"
-                    </p>
-                  </div>
-
-                  <div className="mt-4 space-y-2 text-xs text-slate-300">
-                    <div className="flex items-center">
-                      <Calendar className="w-4 h-4 mr-2 text-blue-400" />
-                      <span>Thời gian: <strong className="text-white">{activeSpeakerModal.time}</strong></span>
-                    </div>
-                    <div className="flex items-center">
-                      <MapPin className="w-4 h-4 mr-2 text-cyan-400" />
-                      <span>Địa điểm: <strong className="text-white">{activeSpeakerModal.hall}</strong></span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                  <button
-                    onClick={() => alert(`Đã lưu phiên của ${activeSpeakerModal.name} vào lịch của bạn!`)}
-                    className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
-                  >
-                    Lưu Vào Lịch Cá Nhân
-                  </button>
-                  <button
-                    onClick={() => alert('Đã sao chép liên kết hồ sơ!')}
-                    className="p-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-slate-300 hover:text-white transition-colors cursor-pointer"
-                    title="Chia sẻ"
-                  >
-                    <Share2 className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
+            {/* Large Video Container */}
+            <div className="w-full aspect-video bg-black">
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1" 
+                title={`Video phát biểu của ${activeSpeakerModal.name}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </div>
       )}
+
+      {/* Inline CSS for slide-up animation */}
+      <style>{`
+        @keyframes slideUp {
+          from { transform: translateY(100%); }
+          to { transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+      `}</style>
     </section>
   )
 }
