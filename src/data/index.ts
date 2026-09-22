@@ -12,6 +12,7 @@ import { timelineData } from './timeline'
 import { speakersData } from './speakers'
 import { galleryData } from './gallery'
 import { newsData } from './news'
+import { partnersData } from './partners'
 import { footerData } from './footer'
 
 // Gom toàn bộ data vào siteData
@@ -25,6 +26,7 @@ export const siteData = {
   speakers: speakersData,
   gallery: galleryData,
   releases: newsData,
+  partners: partnersData,
   footer: footerData,
 }
 

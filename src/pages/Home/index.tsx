@@ -7,6 +7,7 @@ import {
   SpeakersSpotlight,
   GallerySection,
   LatestReleases,
+  PartnersSection,
 } from './sections'
 import { Footer } from '@/components/Footer'
 
@@ -36,8 +37,11 @@ export function HomePage() {
         {/* Latest Releases & Press Articles */}
         <LatestReleases />
 
-        {/* Photo Gallery / Media Showcase (Always last section before footer) */}
+        {/* Photo Gallery / Media Showcase */}
         <GallerySection />
+
+        {/* Partners Section */}
+        <PartnersSection />
 
         {/* Branded Blue Footer with Contact & Supported Entities */}
         <Footer />

@@ -18,12 +18,6 @@ export function HeroBanner() {
     }
   }
 
-  const scrollToTimeline = () => {
-    const timelineSec = document.getElementById('timeline')
-    if (timelineSec) {
-      timelineSec.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
 
   return (
     <section
