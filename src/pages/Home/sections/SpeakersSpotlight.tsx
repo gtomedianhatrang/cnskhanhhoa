@@ -95,25 +95,25 @@ export function SpeakersSpotlight() {
       {activeSpeakerModal && (
         <div 
           onClick={() => setActiveSpeakerModal(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-white/90 backdrop-blur-sm"
           style={{ animation: 'fadeIn 0.2s ease-out' }}
         >
           <div 
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-6xl mx-4 bg-black rounded-2xl overflow-hidden"
+            className="relative w-full max-w-6xl mx-4 bg-white shadow-2xl rounded-2xl overflow-hidden border border-slate-200"
             style={{ animation: 'slideUp 0.3s ease-out' }}
           >
             {/* Close Button */}
             <button
               onClick={() => setActiveSpeakerModal(null)}
-              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/60 hover:bg-white/20 text-slate-400 hover:text-white transition-colors cursor-pointer backdrop-blur-sm"
+              className="absolute top-4 right-4 z-20 p-2 rounded-full bg-white/60 hover:bg-slate-200 text-slate-500 hover:text-slate-900 transition-colors cursor-pointer backdrop-blur-sm"
               aria-label="Đóng"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Large Video Container */}
-            <div className="w-full aspect-video bg-black">
+            <div className="w-full aspect-video bg-white">
               <iframe 
                 className="w-full h-full"
                 src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1" 

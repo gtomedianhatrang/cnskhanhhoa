@@ -84,7 +84,7 @@ export function HistoricalHighlights() {
     <section 
       ref={sectionRef} 
       id="highlights" 
-      className="w-full py-20 md:py-28 bg-gradient-to-b from-slate-50/90 via-blue-50/20 to-slate-50/90 border-t border-slate-200/60"
+      className="w-full py-20 md:py-28 bg-gradient-to-b from-slate-50/90 via-blue-50/20 to-slate-50/90 border-t border-slate-200/60 scroll-mt-20 lg:scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* Section Header with Fade-Up */}
@@ -93,7 +93,7 @@ export function HistoricalHighlights() {
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-slate-900">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-slate-900 leading-snug pt-1 pb-1">
           {highlights.title}
         </h2>
         <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-slate-500 mt-2">
@@ -183,7 +183,7 @@ export function HistoricalHighlights() {
         {/* Column 2: 5 YEARS Milestone Photo (Full Height Tall Photo Card) */}
         <div 
           style={{ transitionDelay: '450ms' }}
-          className={`relative rounded-[32px] overflow-hidden shadow-xl group bg-slate-950 min-h-[480px] lg:min-h-0 lg:h-full flex flex-col justify-end p-7 transition-all duration-700 ease-out ${
+          className={`relative rounded-[32px] overflow-hidden shadow-xl group bg-white border border-slate-200/90 min-h-[480px] lg:min-h-0 lg:h-full flex flex-col justify-end p-7 transition-all duration-700 ease-out ${
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
           }`}
         >
@@ -192,14 +192,14 @@ export function HistoricalHighlights() {
             alt="5 Years Milestone" 
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-108 transition-transform duration-700" 
           />
-          {/* Subtle Dark Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+          {/* Subtle Light Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/30 to-transparent pointer-events-none" />
           
           <div className="relative z-10 flex flex-col items-center text-center pb-3">
-            <div className="text-3xl sm:text-4xl font-black text-white tracking-wider leading-none drop-shadow-md">
+            <div className="text-3xl sm:text-4xl font-black text-slate-900 tracking-wider leading-none drop-shadow-md">
               5 NĂM
             </div>
-            <p className="text-xs font-bold text-slate-200 mt-2 uppercase tracking-widest drop-shadow-sm">
+            <p className="text-xs font-bold text-slate-600 mt-2 uppercase tracking-widest drop-shadow-sm">
               Định hình công nghệ số Châu Á
             </p>
           </div>
@@ -213,13 +213,13 @@ export function HistoricalHighlights() {
           }`}
         >
           {/* Top Card: Live Sports / Interactive Demo Photo */}
-          <div className="rounded-[28px] overflow-hidden shadow-xl relative group flex-1 min-h-[220px] lg:min-h-0 bg-slate-900">
+          <div className="rounded-[28px] overflow-hidden shadow-xl relative group flex-1 min-h-[220px] lg:min-h-0 bg-white border border-slate-200/90">
             <img 
               src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=600" 
               alt="Interactive Expo Demonstration"
-              className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700" 
+              className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 opacity-90" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent pointer-events-none" />
           </div>
 
           {/* Bottom Card: 30% International Exhibitors White Card with Counting Animation */}
@@ -282,13 +282,13 @@ export function HistoricalHighlights() {
           </div>
 
           {/* Bottom Card: Robotics & Machinery Exhibition Photo */}
-          <div className="rounded-[28px] overflow-hidden shadow-xl relative group flex-1 min-h-[220px] lg:min-h-0 bg-slate-900">
+          <div className="rounded-[28px] overflow-hidden shadow-xl relative group flex-1 min-h-[220px] lg:min-h-0 bg-white border border-slate-200/90">
             <img 
               src="/hero-light-bg.jpg" 
               alt="Robotics Showcase"
-              className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700" 
+              className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 opacity-90" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/60 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
       </div>
