@@ -4,7 +4,7 @@ export function StatementSection() {
   const { statement } = siteData
 
   return (
-    <section id="statement" className="relative py-20 md:py-28 bg-white">
+    <section id="statement" className="relative py-20 md:py-28 bg-white scroll-mt-20 lg:scroll-mt-24">
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-extrabold text-slate-900 leading-relaxed tracking-tight text-justify [text-align-last:center]">
           {statement.textBefore}{' '}

@@ -158,16 +158,5 @@ export const speakersData = {
       time: 'Keynote',
       hall: 'Hội trường Grand Keynote',
     },
-    {
-      id: 'sp-15',
-      name: 'Emi WONG',
-      role: 'Content Creator and Entrepreneur',
-      company: 'Digital Media & Fitness',
-      topic: 'Sức khỏe số & Xây dựng cộng đồng triệu người theo dõi',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600',
-      category: 'NHÀ SÁNG LẬP',
-      time: 'Hội nghị Sáng tạo',
-      hall: 'Sân khấu Creator',
-    },
   ] as SpeakerItem[],
 }

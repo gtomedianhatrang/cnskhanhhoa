@@ -68,11 +68,11 @@ export function GallerySection() {
   const currentLightboxItem = lightboxIndex !== null ? items[lightboxIndex] : null
 
   return (
-    <section id="gallery" className="w-full py-20 md:py-28 bg-linear-to-b from-slate-50/90 via-blue-50/25 to-slate-100/70 border-t border-slate-200/80">
+    <section id="gallery" className="w-full py-20 md:py-28 bg-linear-to-b from-slate-50/90 via-blue-50/25 to-slate-100/70 border-t border-slate-200/80 scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* 1. Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-snug pt-1 pb-1">
             {gallery.title} <span className="text-blue-600">{gallery.titleHighlight}</span>
           </h2>
           <p className="text-xs sm:text-base text-slate-500 font-medium mt-3 leading-relaxed">
@@ -127,27 +127,19 @@ export function GallerySection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 max-w-4xl mx-auto">
           {gallery.years.map((yearItem) => (
             <a
               key={yearItem.id}
               href={yearItem.link}
-              className="group relative rounded-2xl overflow-hidden bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 block aspect-4/3"
+              className="group flex flex-col items-center justify-center px-8 py-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 min-w-[200px]"
             >
-              <img
-                src={yearItem.image}
-                alt={yearItem.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/20 to-transparent flex flex-col justify-end p-6">
-                <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                  Năm {yearItem.year}
-                </h3>
-                <p className="text-sm text-slate-300 mt-2 line-clamp-2">
-                  {yearItem.title}
-                </p>
-              </div>
+              <span className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                Năm {yearItem.year}
+              </span>
+              <span className="text-xs text-slate-500 mt-1 font-medium text-center line-clamp-1">
+                {yearItem.title}
+              </span>
             </a>
           ))}
         </div>

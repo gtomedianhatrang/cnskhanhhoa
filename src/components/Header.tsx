@@ -28,20 +28,43 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
   const activeNav = propActiveNav || storeActiveNav
   const { header } = siteData
 
-  // Detect scroll to transition header to fixed white background
+  // Detect scroll to transition header to fixed white background and update active nav
   useEffect(() => {
     const handleScroll = () => {
+      // 1. Header visual transition
       if (window.scrollY > 30) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)
       }
+
+      // 2. Active section ScrollSpy
+      const sections = header.nav.map(item => ({
+        key: item.key,
+        element: document.getElementById(item.targetId)
+      }))
+
+      let currentActiveKey = header.nav[0]?.key || 'home'
+      
+      for (const section of sections) {
+        if (section.element) {
+          const rect = section.element.getBoundingClientRect()
+          // 150px offset to trigger slightly before the section hits the very top
+          if (rect.top <= 150) {
+            currentActiveKey = section.key
+          }
+        }
+      }
+
+      setActiveNav(currentActiveKey)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
+    // Initial check
     handleScroll()
+    
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [header.nav, setActiveNav])
 
   // Close language dropdown on outside click
   useEffect(() => {
@@ -79,11 +102,15 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
     >
       <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
         {/* Left: Brand Logo & Text */}
-        <div className="flex items-center">
-          <a href="/" className="flex items-center gap-3 group">
-            <img src="/logo.png" alt="CNS Khánh Hòa" className="h-12 sm:h-16 w-auto object-contain transition-transform group-hover:scale-105" />
+        <div className="flex items-center shrink-0">
+          <a href="/" className="flex items-center gap-2.5 sm:gap-3 group">
+            <img 
+              src="/logo.png" 
+              alt="CNS Khánh Hòa" 
+              className="h-10 sm:h-11 md:h-11 lg:h-13 w-auto object-contain transition-transform group-hover:scale-105" 
+            />
             <span 
-              className={`font-display text-xl sm:text-2xl font-black tracking-wider transition-colors hidden sm:inline-block ${
+              className={`font-display text-lg lg:text-2xl font-black tracking-wider transition-colors hidden lg:inline-block ${
                 isScrolled ? 'text-blue-600' : 'text-white'
               }`}
             >
@@ -92,15 +119,15 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
           </a>
         </div>
 
-        {/* Right Navigation Menu - Active chỉ đổi sắc độ chữ xanh đậm/nhạt, không gạch chân */}
-        <nav className="hidden lg:flex items-center space-x-7 sm:space-x-8 text-xs uppercase tracking-widest">
+        {/* Right Navigation Menu - Visible on Tablet (md: >=768px) and Desktop */}
+        <nav className="hidden md:flex items-center space-x-3 md:space-x-4 lg:space-x-6 xl:space-x-8 text-[11px] lg:text-xs uppercase tracking-wider lg:tracking-widest">
           {header.nav.map((item) => {
             const isActive = activeNav === item.key
             return (
               <button
                 key={item.key}
                 onClick={() => scrollToSection(item.targetId, item.key)}
-                className={`py-1 transition-colors cursor-pointer ${
+                className={`py-1 transition-colors cursor-pointer whitespace-nowrap ${
                   isScrolled
                     ? isActive
                       ? 'text-blue-600 font-black'
@@ -116,7 +143,7 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
           })}
 
           {/* Language Dropdown Selector */}
-          <div className="relative pl-4 border-l border-slate-300 dark:border-white/20" ref={langDropdownRef}>
+          <div className="relative pl-3 lg:pl-4 border-l border-slate-300 dark:border-white/20 notranslate shrink-0" translate="no" ref={langDropdownRef}>
             <button 
               type="button"
               onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
@@ -164,10 +191,10 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
           </div>
         </nav>
 
-        {/* Mobile Hamburger Button */}
+        {/* Mobile Hamburger Button (Only on < md: < 768px) */}
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`lg:hidden p-2 rounded-xl transition-colors ${
+          className={`md:hidden p-2 rounded-xl transition-colors ${
             isScrolled 
               ? 'bg-slate-100 text-slate-800 hover:bg-slate-200' 
               : 'bg-white/10 text-white hover:bg-white/20'
@@ -178,53 +205,68 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer (Clean Solid Right Slide-over) */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-2xl p-6 flex flex-col justify-between text-white animate-in fade-in">
-          <div className="flex items-center justify-between pb-6 border-b border-slate-800">
-            <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="CNS Khánh Hòa" className="h-10 w-auto object-contain" />
-              <span className="font-display text-lg font-bold tracking-wider">CÔNG NGHỆ SỐ</span>
-            </div>
-            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-slate-400 hover:text-white">
-              <X className="w-6 h-6" />
-            </button>
-          </div>
-          <div className="flex flex-col space-y-5 text-sm font-bold uppercase tracking-widest py-6">
-            {header.nav.map((item) => (
+        <div className="md:hidden fixed inset-0 z-50">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          {/* Drawer Sheet */}
+          <div className="absolute inset-y-0 right-0 w-full max-w-sm bg-slate-950 p-6 flex flex-col justify-between text-white shadow-2xl animate-in slide-in-from-right duration-300">
+            <div className="flex items-center justify-between pb-5 border-b border-slate-800">
+              <div className="flex items-center gap-3">
+                <img src="/logo.png" alt="CNS Khánh Hòa" className="h-9 w-auto object-contain" />
+                <span className="font-display text-base font-bold tracking-wider">CÔNG NGHỆ SỐ</span>
+              </div>
               <button 
-                key={item.key}
-                onClick={() => { setIsMobileMenuOpen(false); scrollToSection(item.targetId, item.key) }}
-                className={`text-left py-2 transition-colors ${
-                  activeNav === item.key ? 'text-blue-400 font-black' : 'text-slate-400 hover:text-blue-400'
-                }`}
+                onClick={() => setIsMobileMenuOpen(false)} 
+                className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+                aria-label="Đóng menu"
               >
-                {item.label}
+                <X className="w-6 h-6" />
               </button>
-            ))}
-          </div>
-          
-          {/* Mobile Language Switcher */}
-          <div className="grid grid-cols-2 gap-2 pt-4 border-t border-slate-800">
-            {LANGUAGE_OPTIONS.map((opt) => {
-              const isSelected = currentLang === opt.code
-              return (
-                <button
-                  key={opt.code}
-                  onClick={() => {
-                    setCurrentLang(opt.code)
-                    setIsMobileMenuOpen(false)
-                  }}
-                  className={`py-2.5 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
-                    isSelected
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
+            </div>
+            
+            <div className="flex flex-col space-y-4 text-sm font-bold uppercase tracking-widest py-6 overflow-y-auto">
+              {header.nav.map((item) => (
+                <button 
+                  key={item.key}
+                  onClick={() => { setIsMobileMenuOpen(false); scrollToSection(item.targetId, item.key) }}
+                  className={`text-left py-2.5 px-3 rounded-xl transition-colors ${
+                    activeNav === item.key 
+                      ? 'bg-blue-600/20 text-blue-400 font-black' 
+                      : 'text-slate-300 hover:bg-white/5 hover:text-blue-400'
                   }`}
                 >
-                  {opt.label}
+                  {item.label}
                 </button>
-              )
-            })}
+              ))}
+            </div>
+            
+            {/* Mobile Language Switcher */}
+            <div className="grid grid-cols-2 gap-2 pt-4 border-t border-slate-800 notranslate" translate="no">
+              {LANGUAGE_OPTIONS.map((opt) => {
+                const isSelected = currentLang === opt.code
+                return (
+                  <button
+                    key={opt.code}
+                    onClick={() => {
+                      setCurrentLang(opt.code)
+                      setIsMobileMenuOpen(false)
+                    }}
+                    className={`py-2.5 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
+                      isSelected
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                )
+              })}
+            </div>
           </div>
         </div>
       )}

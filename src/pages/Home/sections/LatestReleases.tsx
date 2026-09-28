@@ -5,17 +5,19 @@ export function LatestReleases() {
   const { releases } = siteData
 
   return (
-    <section id="news" className="w-full py-20 md:py-28 bg-white">
+    <section id="news" className="w-full py-20 md:py-28 bg-white scroll-mt-20 lg:scroll-mt-24">
       {/* 1. Header Section */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 mb-10 border-b border-slate-200/80 pb-6">
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-slate-900">
+      <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 px-6">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-snug pt-1 pb-1">
           {releases.title}
           {releases.titleHighlight ? (
             <span className="text-blue-600"> {releases.titleHighlight}</span>
           ) : null}
         </h2>
         {releases.subtitle ? (
-          <p className="text-sm text-slate-500 mt-2">{releases.subtitle}</p>
+          <p className="text-xs sm:text-base text-slate-500 font-medium mt-3 leading-relaxed">
+            {releases.subtitle}
+          </p>
         ) : null}
       </div>
 

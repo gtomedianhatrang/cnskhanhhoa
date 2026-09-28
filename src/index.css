@@ -64,7 +64,10 @@
 #goog-gt-tt,
 .goog-te-balloon-frame,
 .goog-tooltip,
-.goog-tooltip:hover {
+.goog-tooltip:hover,
+.goog-te-gadget,
+.goog-logo-link,
+.goog-te-spinner-pos {
   display: none !important;
   visibility: hidden !important;
 }

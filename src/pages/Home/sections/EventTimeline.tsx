@@ -83,18 +83,15 @@ export function EventTimeline() {
 
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage)
-    const timelineElement = document.getElementById('timeline')
-    if (timelineElement) {
-      timelineElement.scrollIntoView({ behavior: 'smooth' })
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
-    <section id="timeline" className="w-full py-20 md:py-28 bg-slate-50/60">
+    <section id="timeline" className="w-full py-20 md:py-28 bg-slate-50/60 scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* 1. Header Section */}
       <div className="text-center max-w-4xl mx-auto mb-10">
-        <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-slate-900 leading-tight">
+        <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-slate-900 leading-snug pt-1 pb-1">
           {timeline.title}
           {timeline.titleHighlight ? (
             <span className="text-blue-600"> {timeline.titleHighlight}</span>
