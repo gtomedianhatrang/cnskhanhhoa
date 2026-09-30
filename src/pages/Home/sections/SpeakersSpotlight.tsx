@@ -28,14 +28,15 @@ export function SpeakersSpotlight() {
   }, [activeSpeakerModal])
 
   return (
-    <section id="speakers" className="w-full bg-slate-50 text-slate-900 select-none scroll-mt-20 lg:scroll-mt-24">
-      {/* Mosaic Grid Container matching the exact reference layout with 0 gap and no borders */}
-      <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 bg-slate-50">
+    <section id="speakers" className="w-full bg-slate-100 text-slate-900 select-none scroll-mt-20 lg:scroll-mt-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-6 sm:py-10">
+      {/* Mosaic Grid Container */}
+      <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-1 bg-slate-100">
         
         {/* 1. Header Box (Full Width) - Light Mode */}
-        <div className="col-span-2 md:col-span-4 lg:col-span-6 bg-white p-8 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center relative min-h-[220px] sm:min-h-[280px] overflow-hidden group">
+        <div className="col-span-2 md:col-span-4 lg:col-span-4 p-8 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center relative min-h-[220px] sm:min-h-[280px] overflow-hidden group">
           {/* Decorative background elements */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-slate-50 pointer-events-none" />
+
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-40 group-hover:scale-125 transition-transform duration-700 pointer-events-none" />
           
           <div className="relative z-10 flex flex-col items-center">
@@ -61,34 +62,33 @@ export function SpeakersSpotlight() {
           </div>
         </div>
 
-        {/* 2. All 15 Speakers Cards Grid - Seamless Touching Photos */}
-        {speakers.list.map((speaker) => (
+        {/* 2. Placeholder Speaker Cards */}
+        {speakers.list.map((_, index) => (
           <div
-            key={speaker.id}
-            onClick={() => setActiveSpeakerModal(speaker)}
-            className="group relative aspect-[3/4] sm:aspect-[4/5] bg-slate-200 overflow-hidden cursor-pointer"
+            key={index}
+            className="group relative aspect-[3/4] sm:aspect-[4/5] bg-slate-200 overflow-hidden"
           >
-            {/* Speaker Stage Photo with smooth zoom and NO border */}
-            <img
-              src={speaker.image}
-              alt={speaker.name}
-              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
+            {/* Placeholder background with subtle pattern */}
+            <div className="w-full h-full bg-gradient-to-br from-slate-200 via-slate-300 to-slate-200 flex flex-col items-center justify-center gap-3 p-4">
+              {/* Avatar placeholder icon */}
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-400/40 flex items-center justify-center border-2 border-dashed border-slate-400">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-slate-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                </svg>
+              </div>
 
-            {/* Bottom Dark Vignette Overlay for Text Legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
+              {/* Slot number */}
+              <div className="text-center">
+                <p className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Diễn giả #{index + 1}</p>
+                <p className="text-[11px] sm:text-sm font-semibold text-slate-500 mt-1">Sắp công bố</p>
+              </div>
 
-            {/* Speaker Name & Role Overlay Pinned at Bottom */}
-            <div className="absolute inset-0 p-3 sm:p-4 flex flex-col justify-end pointer-events-none">
-              <h3 className="font-sans text-xs sm:text-sm md:text-base font-black text-white tracking-wide leading-tight drop-shadow-md">
-                {speaker.name}
-              </h3>
-              <p className="text-[10px] sm:text-[11px] text-slate-300 font-normal leading-snug mt-1 line-clamp-2 drop-shadow-sm">
-                {speaker.role}
-              </p>
+              {/* Dashed border overlay */}
+              <div className="absolute inset-3 border-2 border-dashed border-slate-300/70 rounded pointer-events-none" />
             </div>
           </div>
         ))}
+      </div>
       </div>
 
       {/* Speaker Video Modal - Slides up from bottom */}
