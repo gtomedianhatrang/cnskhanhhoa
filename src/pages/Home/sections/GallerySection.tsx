@@ -19,7 +19,7 @@ export function GallerySection() {
   const displayedItems = showAll ? items : items.slice(0, initialDisplayCount)
 
   const openLightbox = (item: GalleryItem) => {
-    const idx = items.findIndex((i) => i.id === item.id)
+    const idx = items.findIndex((i: GalleryItem) => i.id === item.id)
     if (idx !== -1) setLightboxIndex(idx)
   }
 
@@ -71,9 +71,9 @@ export function GallerySection() {
     <section id="gallery" className="w-full py-20 md:py-28 bg-linear-to-b from-slate-50/90 via-blue-50/25 to-slate-100/70 border-t border-slate-200/80 scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* 1. Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-snug pt-1 pb-1">
-            {gallery.title} <span className="text-blue-600">{gallery.titleHighlight}</span>
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-[1.3] pt-1 pb-1">
+            KHÔNG GIAN TRIỂN LÃM &<br className="hidden md:block" /> TRẢI NGHIỆM <span className="text-blue-600">SỰ KIỆN</span>
           </h2>
           <p className="text-xs sm:text-base text-slate-500 font-medium mt-3 leading-relaxed">
             {gallery.subtitle}
@@ -82,7 +82,7 @@ export function GallerySection() {
 
         {/* 2. Photo Gallery Grid - Auto-aligned, Balanced 4-Column Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
-          {displayedItems.map((item) => (
+          {displayedItems.map((item: GalleryItem) => (
             <div
               key={item.id}
               onClick={() => openLightbox(item)}
@@ -115,34 +115,7 @@ export function GallerySection() {
           </div>
         )}
 
-        <hr className="my-16 border-slate-200/80 max-w-3xl mx-auto" />
 
-        {/* 4. Yearly Albums / Collections Section (Links) */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <h3 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-slate-900">
-            HÌNH ẢNH QUA CÁC NĂM
-          </h3>
-          <p className="text-sm text-slate-500 font-medium mt-2">
-            Nhấn vào từng năm để xem lại toàn bộ kho lưu trữ
-          </p>
-        </div>
-
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 max-w-4xl mx-auto">
-          {gallery.years.map((yearItem) => (
-            <a
-              key={yearItem.id}
-              href={yearItem.link}
-              className="group flex flex-col items-center justify-center px-8 py-4 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 hover:-translate-y-1 transition-all duration-300 min-w-[200px]"
-            >
-              <span className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                Năm {yearItem.year}
-              </span>
-              <span className="text-xs text-slate-500 mt-1 font-medium text-center line-clamp-1">
-                {yearItem.title}
-              </span>
-            </a>
-          ))}
-        </div>
       </div>
 
       {/* Fullscreen Lightbox Preview Modal with Bottom Thumbnails Strip */}
@@ -200,7 +173,7 @@ export function GallerySection() {
             className="w-full max-w-full z-10 pb-1 sm:pb-2"
           >
             <div className="flex items-center gap-2.5 sm:gap-3.5 overflow-x-auto py-3 px-[40vw] sm:px-[45vw] scrollbar-none scroll-smooth">
-              {items.map((thumb, tIdx) => {
+              {items.map((thumb: GalleryItem, tIdx: number) => {
                 const isActive = tIdx === lightboxIndex
                 return (
                   <button

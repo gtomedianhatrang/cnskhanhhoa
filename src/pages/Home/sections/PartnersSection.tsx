@@ -47,7 +47,7 @@ export function PartnersSection() {
 
               {/* Right Column: Logos */}
               <div className="md:w-2/3 bg-slate-50/50 flex flex-wrap items-center justify-center gap-8 sm:gap-12 p-8 sm:p-12 min-h-[160px]">
-                {tier.logos.map((logo, lIdx) => (
+                {tier.logos.map((_logo, lIdx) => (
                   <PartnerLogo key={lIdx} />
                 ))}
               </div>

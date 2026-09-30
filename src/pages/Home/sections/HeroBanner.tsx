@@ -22,7 +22,7 @@ export function HeroBanner() {
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen flex flex-col text-white overflow-hidden select-none"
+      className="relative w-full min-h-[100dvh] flex flex-col text-white overflow-hidden select-none"
     >
       {/* === Background Layer === */}
       <div className="absolute inset-0 z-0">
@@ -78,48 +78,50 @@ export function HeroBanner() {
             }`}
           >
             <h1 className="font-vietnam font-black uppercase tracking-tight text-center flex flex-col gap-2 sm:gap-4">
-              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white">NGÀY HỘI</span>
-              <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cyan-400 whitespace-nowrap">CÔNG NGHỆ SỐ</span>
-              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white">TỈNH KHÁNH HÒA</span>
-              <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl text-cyan-400">NĂM 2026</span>
+              <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white">NGÀY HỘI</span>
+              <span className="block text-5xl sm:text-6xl md:text-8xl lg:text-[7.5rem] leading-none text-cyan-400 whitespace-nowrap drop-shadow-lg">CÔNG NGHỆ SỐ</span>
+              <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white">TỈNH KHÁNH HÒA</span>
+              <span className="block text-xl sm:text-3xl md:text-4xl lg:text-5xl text-cyan-400 mt-2">NĂM 2026</span>
             </h1>
           </div>
 
-          {/* Dòng thời gian & địa điểm */}
-          <div className="mt-10 sm:mt-14 text-xs sm:text-sm md:text-base font-semibold uppercase text-slate-100 tracking-wider sm:tracking-widest drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] flex flex-wrap items-center justify-center">
-            {(() => {
-              const fullText = '24 – 26 THÁNG 10, 2026 • QUẢNG TRƯỜNG 2/4, TP. NHA TRANG'
-              const words = fullText.split(' ')
-              let cumulativeIndex = 0
 
-              return words.map((word, wIdx) => (
-                <span key={wIdx} className="inline-block whitespace-nowrap mr-[0.35em]">
-                  {word.split('').map((char, cIdx) => {
-                    const charDelay = 650 + cumulativeIndex * 22
-                    cumulativeIndex++
 
-                    return (
-                      <span
-                        key={cIdx}
-                        className={`inline-block ${char === '•' ? 'text-cyan-400 font-bold' : ''}`}
-                        style={{
-                          opacity: 0,
-                          animation: isVisible
-                            ? `heroWaveRise 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) ${charDelay}ms both`
-                            : 'none',
-                        }}
-                      >
-                        {char}
-                      </span>
-                    )
-                  })}
-                </span>
-              ))
-            })()}
+            {/* Dòng thời gian & địa điểm */}
+            <div className="mt-8 sm:mt-12 text-xs sm:text-sm md:text-base font-semibold uppercase text-slate-100 tracking-wider sm:tracking-widest drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] flex flex-wrap items-center justify-center">
+              {(() => {
+                const fullText = '24 – 26 THÁNG 10, 2026 • QUẢNG TRƯỜNG 2/4, TP. NHA TRANG'
+                const words = fullText.split(' ')
+                let cumulativeIndex = 0
+
+                return words.map((word, wIdx) => (
+                  <span key={wIdx} className="inline-block whitespace-nowrap mr-[0.35em]">
+                    {word.split('').map((char, cIdx) => {
+                      const charDelay = 650 + cumulativeIndex * 22
+                      cumulativeIndex++
+
+                      return (
+                        <span
+                          key={cIdx}
+                          className={`inline-block ${char === '•' ? 'text-cyan-400 font-bold' : ''}`}
+                          style={{
+                            opacity: 0,
+                            animation: isVisible
+                              ? `heroWaveRise 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) ${charDelay}ms both`
+                              : 'none',
+                          }}
+                        >
+                          {char}
+                        </span>
+                      )
+                    })}
+                  </span>
+                ))
+              })()}
+            </div>
+
           </div>
-
         </div>
-      </div>
 
       {/* === Bottom Scroll Indicator === */}
       <div className="relative z-20 w-full pb-8 flex justify-center">

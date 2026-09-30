@@ -1,187 +1,185 @@
 import type { GalleryItem } from './types'
 
 export const galleryData = {
-  title: 'THƯ VIỆN HÌNH ẢNH',
-  titleHighlight: '',
-  subtitle: 'Những khoảnh khắc đáng nhớ tại Ngày hội Công nghệ số Khánh Hòa.',
-  
-  years: [
-    {
-      id: '2024',
-      year: '2024',
-      title: 'Xem lại hình ảnh sự kiện 2024',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1000',
-      link: '#'
-    },
-    {
-      id: '2023',
-      year: '2023',
-      title: 'Xem lại hình ảnh sự kiện 2023',
-      image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000',
-      link: '#'
-    },
-    {
-      id: '2022',
-      year: '2022',
-      title: 'Xem lại hình ảnh sự kiện 2022',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000',
-      link: '#'
-    }
-  ],
-
+  title: 'KHÔNG GIAN TRIỂN LÃM & TRẢI NGHIỆM',
+  titleHighlight: 'SỰ KIỆN',
+  subtitle: 'Hình ảnh nổi bật về các hoạt động trưng bày, trình diễn và trải nghiệm công nghệ số xuyên suốt chuỗi sự kiện Ngày hội Công nghệ số tỉnh Khánh Hòa năm 2025.',
   categories: [
-    { id: 'all', label: 'Tất Cả' },
-    { id: 'keynote', label: 'Lễ Khai Mạc & Keynote' },
-    { id: 'robotics', label: 'AI & Robotics' },
-    { id: 'forum', label: 'Tọa Đàm & Hội Thảo' },
-    { id: 'expo', label: 'Khu Vực Triển Lãm' },
-    { id: 'networking', label: 'Giao Thương & Gala' },
+    { id: 'all', label: 'Tất cả hình ảnh', count: 19 },
+    { id: 'keynote', label: 'Lễ Khai Mạc & Sự Kiện', count: 4 },
+    { id: 'expo', label: 'Triển lãm & Trải nghiệm', count: 15 },
   ],
-
   items: [
     {
       id: 'g-1',
-      title: 'Toàn cảnh Lễ Khai Mạc tại Sân khấu chính Grand Keynote',
+      title: 'Lãnh đạo phát biểu chỉ đạo',
       category: 'keynote',
-      categoryLabel: 'LỄ KHAI MẠC',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1000',
-      description: 'Hơn 2.000 đại biểu, chuyên gia và lãnh đạo cấp cao tham dự phiên khai mạc trang trọng.',
+      categoryLabel: 'PHÁT BIỂU',
+      image: '/gallery/2025/lanh-dao-phat-bieu.png',
+      description: 'Đại diện lãnh đạo phát biểu chỉ đạo và định hướng phát triển chuyển đổi số.',
       aspect: 'landscape'
     },
     {
       id: 'g-2',
-      title: 'Trình diễn Robot hình người tích hợp AI thế hệ mới',
-      category: 'robotics',
-      categoryLabel: 'AI & ROBOTICS',
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1000',
-      description: 'Robot tương tác thời gian thực với quan khách và biểu diễn các thao tác kỹ thuật chính xác.',
-      aspect: 'portrait'
+      title: 'Trải nghiệm công nghệ Thực tế ảo (VR)',
+      category: 'expo',
+      categoryLabel: 'TRẢI NGHIỆM',
+      image: '/gallery/2025/trai-nghiem-vr.png',
+      description: 'Các bạn sinh viên hào hứng trải nghiệm các thiết bị công nghệ mới nhất tại gian hàng.',
+      aspect: 'landscape'
     },
     {
       id: 'g-3',
-      title: 'Không gian Triển lãm Công nghệ Đô thị Thông minh 40.000m²',
+      title: 'Khách tham quan tìm hiểu giải pháp số',
       category: 'expo',
       categoryLabel: 'TRIỂN LÃM',
-      image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1000',
-      description: 'Khu vực trưng bày các giải pháp IoT, cảm biến thông minh và bản đồ số quy hoạch.',
+      image: '/gallery/2025/tham-quan-gian-hang-cong-nghe.png',
+      description: 'Người dân tham quan và nghe tư vấn tại các gian hàng giải pháp công nghệ chuyển đổi số.',
       aspect: 'landscape'
     },
     {
       id: 'g-4',
-      title: 'Tọa đàm bàn tròn: Tương lai Trung tâm Dữ liệu Xanh',
-      category: 'forum',
-      categoryLabel: 'TỌA ĐÀM',
-      image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&q=80&w=1000',
-      description: 'Các chuyên gia quốc tế thảo luận về hạ tầng đám mây và tối ưu năng lượng cho AI.',
-      aspect: 'square'
+      title: 'Chương trình nghệ thuật khai mạc',
+      category: 'keynote',
+      categoryLabel: 'SỰ KIỆN',
+      image: '/gallery/2025/van-nghe-truyen-thong.png',
+      description: 'Tiết mục văn nghệ mang đậm dấu ấn văn hóa truyền thống kết hợp tinh thần đổi mới sáng tạo.',
+      aspect: 'landscape'
     },
     {
       id: 'g-5',
-      title: 'Trải nghiệm Kính thực tế ảo Apple Vision Pro & VR Hub',
-      category: 'robotics',
-      categoryLabel: 'AI & ROBOTICS',
-      image: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&q=80&w=1000',
-      description: 'Khách tham quan trực tiếp trải nghiệm mô hình 3D thực tế ảo tăng cường không gian số.',
-      aspect: 'square'
+      title: 'Nghi thức bấm nút khai mạc Ngày hội',
+      category: 'keynote',
+      categoryLabel: 'LỄ KHAI MẠC',
+      image: '/gallery/2025/nghi-thuc-bam-nut.png',
+      description: 'Các đại biểu lãnh đạo thực hiện nghi thức bấm nút chính thức khai mạc Ngày hội.',
+      aspect: 'landscape'
     },
     {
       id: 'g-6',
-      title: 'Phiên kết nối Doanh nghiệp Quốc tế B2B Matchmaking Hub',
-      category: 'networking',
-      categoryLabel: 'GIAO THƯƠNG B2B',
-      image: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=1000',
-      description: 'Đàm phán thương mại và ký kết hơn 30 biên bản ghi nhớ hợp tác chuyển giao công nghệ.',
-      aspect: 'portrait'
+      title: 'Cắt băng khai mạc không gian triển lãm',
+      category: 'keynote',
+      categoryLabel: 'LỄ KHAI MẠC',
+      image: '/gallery/2025/cat-bang-trien-lam.png',
+      description: 'Đại biểu cắt băng khai trương không gian triển lãm công nghệ tại Khối A.',
+      aspect: 'landscape'
     },
     {
       id: 'g-7',
-      title: 'Sân khấu Chung kết Cuộc thi Khởi nghiệp Đổi mới Sáng tạo',
-      category: 'keynote',
-      categoryLabel: 'KHỞI NGHIỆP & AWARDS',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000',
-      description: 'Top 50 startup công nghệ tranh tài thuyết trình trước hội đồng các quỹ đầu tư mạo hiểm hàng đầu.',
+      title: 'Tham quan gian hàng MobiFone 5G',
+      category: 'expo',
+      categoryLabel: 'TRIỂN LÃM',
+      image: '/gallery/2025/tham-quan-gian-hang-mobifone.png',
+      description: 'Lãnh đạo tham quan và trải nghiệm sản phẩm tại gian hàng MobiFone.',
       aspect: 'landscape'
     },
     {
       id: 'g-8',
-      title: 'Đêm tiệc Gala Dinner & Tôn vinh Sáng chế Công nghệ Tiên phong',
-      category: 'networking',
-      categoryLabel: 'GALA NIGHT',
-      image: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&q=80&w=1000',
-      description: 'Không gian âm nhạc nghệ thuật và kết nối thân mật giữa các tập đoàn và nhà sáng lập.',
+      title: 'Trải nghiệm thiết bị thông minh',
+      category: 'expo',
+      categoryLabel: 'TRẢI NGHIỆM',
+      image: '/gallery/2025/trai-nghiem-thiet-bi-nhan-dien.png',
+      description: 'Trải nghiệm hệ thống nhận diện và thiết bị chuyển đổi số trực tiếp tại sự kiện.',
       aspect: 'landscape'
     },
     {
       id: 'g-9',
-      title: 'Trình diễn Ánh sáng Drone tại Quảng trường Trung tâm',
-      category: 'keynote',
-      categoryLabel: 'SỰ KIỆN',
-      image: 'https://images.unsplash.com/photo-1506452814897-cb02cb5725db?auto=format&fit=crop&q=80&w=1000',
-      description: 'Hàng trăm drone xếp hình biểu tượng công nghệ số trên bầu trời đêm.',
-      aspect: 'landscape'
-    },
-    {
-      id: 'g-10',
-      title: 'Khu gian hàng Giáo dục số thông minh',
+      title: 'Gian hàng Y tế thông minh',
       category: 'expo',
       categoryLabel: 'TRIỂN LÃM',
-      image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1000',
-      description: 'Học sinh sinh viên trực tiếp thao tác với thiết bị học tập sử dụng AR.',
+      image: '/gallery/2025/gian-hang-y-te-thong-minh.png',
+      description: 'Mô hình Kiosk Y tế tự động tại gian hàng Sở Y tế - Bệnh viện Đa khoa.',
       aspect: 'portrait'
     },
     {
+      id: 'g-10',
+      title: 'Trải nghiệm Photobooth tương tác',
+      category: 'expo',
+      categoryLabel: 'TRẢI NGHIỆM',
+      image: '/gallery/2025/chup-anh-photobooth-2.png',
+      description: 'Các em nhỏ thích thú với khu vực chụp ảnh lưu niệm ứng dụng công nghệ.',
+      aspect: 'landscape'
+    },
+    {
       id: 'g-11',
-      title: 'Hội thảo: An toàn Thông tin Không gian số',
-      category: 'forum',
-      categoryLabel: 'TỌA ĐÀM',
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1000',
-      description: 'Chuyên gia bảo mật chia sẻ các phương pháp phòng chống mã độc và ransomware mới.',
-      aspect: 'square'
+      title: 'Giới thiệu giải pháp an toàn thông tin',
+      category: 'expo',
+      categoryLabel: 'TRIỂN LÃM',
+      image: '/gallery/2025/tham-quan-gian-hang-fpt.png',
+      description: 'Khách hàng được tư vấn về hệ thống chống giả mạo số và xác thực điện tử.',
+      aspect: 'landscape'
     },
     {
       id: 'g-12',
-      title: 'Khách tham quan trải nghiệm Cánh tay Robot Công nghiệp',
-      category: 'robotics',
-      categoryLabel: 'AI & ROBOTICS',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000',
-      description: 'Mô phỏng tự động hóa dây chuyền sản xuất lắp ráp linh kiện điện tử tốc độ cao.',
+      title: 'Trưng bày sách về Chuyển đổi số',
+      category: 'expo',
+      categoryLabel: 'TRẢI NGHIỆM',
+      image: '/gallery/2025/trung-bay-sach-chuyen-doi-so.png',
+      description: 'Không gian giới thiệu các ấn phẩm về công nghệ số và trí tuệ nhân tạo.',
       aspect: 'landscape'
     },
     {
       id: 'g-13',
-      title: 'Phiên thảo luận Đầu tư Công nghệ Blockchain',
-      category: 'forum',
-      categoryLabel: 'TỌA ĐÀM',
-      image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&q=80&w=1000',
-      description: 'Các nhà phân tích kinh tế phân tích xu hướng và ứng dụng của hợp đồng thông minh.',
+      title: 'Giải pháp lưu trữ và điện toán đám mây',
+      category: 'expo',
+      categoryLabel: 'TRIỂN LÃM',
+      image: '/gallery/2025/gian-hang-giai-phap-dam-may.png',
+      description: 'Giới thiệu các hạ tầng Cloud Server và dịch vụ lưu trữ hiện đại.',
       aspect: 'landscape'
     },
     {
       id: 'g-14',
-      title: 'Gian hàng Khởi nghiệp Nông nghiệp thông minh',
+      title: 'Tham quan thiết bị số',
       category: 'expo',
-      categoryLabel: 'TRIỂN LÃM',
-      image: 'https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=1000',
-      description: 'Mô hình giám sát chất lượng đất và tưới tiêu tự động qua cảm biến IoT.',
-      aspect: 'square'
-    },
-    {
-      id: 'g-15',
-      title: 'Lễ bế mạc và trao giải Cuộc thi Sáng tạo Công nghệ',
-      category: 'keynote',
-      categoryLabel: 'LỄ BẾ MẠC',
-      image: 'https://images.unsplash.com/photo-1561489422-45de3d015e3e?auto=format&fit=crop&q=80&w=1000',
-      description: 'Trao thưởng cho 3 dự án xuất sắc nhất có tính ứng dụng thực tiễn cao.',
+      categoryLabel: 'TRẢI NGHIỆM',
+      image: '/gallery/2025/trai-nghiem-thiet-bi-so.png',
+      description: 'Các đại biểu và chuyên gia tìm hiểu về phần cứng công nghệ mới.',
       aspect: 'landscape'
     },
     {
-      id: 'g-16',
-      title: 'Giao lưu ký kết đối tác công nghệ chiến lược',
-      category: 'networking',
-      categoryLabel: 'GIAO THƯƠNG B2B',
-      image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32b7?auto=format&fit=crop&q=80&w=1000',
-      description: 'Đại diện các doanh nghiệp chính thức bắt tay hợp tác cùng phát triển nền tảng số.',
+      id: 'g-15',
+      title: 'Trình diễn Robot dịch vụ',
+      category: 'expo',
+      categoryLabel: 'TRẢI NGHIỆM',
+      image: '/gallery/2025/trinh-dien-robot-thong-minh.png',
+      description: 'Các mô hình robot thông minh phục vụ trong đời sống và y tế.',
       aspect: 'portrait'
+    },
+    {
+      id: 'g-16',
+      title: 'Phỏng vấn trực tiếp tại gian hàng truyền thông',
+      category: 'expo',
+      categoryLabel: 'SỰ KIỆN',
+      image: '/gallery/2025/phong-van-truc-tiep-ktv.png',
+      description: 'Hoạt động truyền thông, phỏng vấn trực tiếp tại không gian Ngày hội.',
+      aspect: 'landscape'
+    },
+    {
+      id: 'g-17',
+      title: 'Thiếu nhi thích thú trải nghiệm kính VR',
+      category: 'expo',
+      categoryLabel: 'TRẢI NGHIỆM',
+      image: '/gallery/2025/tre-em-trai-nghiem-vr.png',
+      description: 'Các bạn nhỏ được làm quen với công nghệ thực tế ảo thông qua các trò chơi.',
+      aspect: 'landscape'
+    },
+    {
+      id: 'g-18',
+      title: 'Không gian thực tế ảo AR/VR',
+      category: 'expo',
+      categoryLabel: 'TRẢI NGHIỆM',
+      image: '/gallery/2025/thanh-nien-trai-nghiem-vr.png',
+      description: 'Người dân và thanh niên trải nghiệm các ứng dụng VR miễn phí.',
+      aspect: 'landscape'
+    },
+    {
+      id: 'g-19',
+      title: 'Lễ bế mạc và trao giải',
+      category: 'keynote',
+      categoryLabel: 'LỄ BẾ MẠC',
+      image: '/gallery/2025/be-mac-su-kien.png',
+      description: 'Lễ tổng kết, trao chứng nhận cho các đơn vị và doanh nghiệp tham gia Ngày hội.',
+      aspect: 'landscape'
     }
   ] as GalleryItem[]
 }
