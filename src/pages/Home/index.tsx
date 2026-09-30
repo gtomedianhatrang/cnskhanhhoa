@@ -6,10 +6,12 @@ import {
   QuoteBanner,
   HistoricalHighlights,
   EventTimeline,
-  SpeakersSpotlight,
   GallerySection,
   LatestReleases,
-  PartnersSection,
+  // PartnersSection,
+  RegistrationSection,
+  CoreValuesSection,
+  TechShowcaseSection,
 } from './sections'
 import { Footer } from '@/components/Footer'
 
@@ -55,29 +57,29 @@ export function HomePage() {
 
       {/* 2. Main Page Content */}
       <main className="relative bg-white">
-        {/* Statement / Mission Editorial Intro */}
+        {/* 1. Statement / Mission Editorial Intro */}
         <StatementSection />
 
-        {/* Historical Highlights (160K+ Stats & Bento Cards Gallery) */}
-        <HistoricalHighlights />
+        {/* 2. Core Values / Pillars (The foundation) */}
+        <CoreValuesSection />
 
-        {/* Featured Quote Gradient Wave Ribbon (Visual Transition Divider) */}
-        <QuoteBanner />
+        {/* 3. Tech Showcase (Zig-Zag) */}
+        <TechShowcaseSection />
 
-        {/* 4-Day Event Timeline & Detailed Sessions */}
+        {/* 4. 4-Day Event Timeline & Detailed Sessions */}
         <EventTimeline />
 
-        {/* Speakers Spotlight (Stage Mosaic Grid) */}
-        <SpeakersSpotlight />
+        {/* 5. Historical Highlights (Stats & Achievements) */}
+        <HistoricalHighlights />
 
-        {/* Latest Releases & Press Articles */}
-        <LatestReleases />
-
-        {/* Photo Gallery / Media Showcase */}
+        {/* 6. Photo Gallery (Visual break) */}
         <GallerySection />
 
-        {/* Partners Section */}
-        <PartnersSection />
+        {/* 7. Featured Quote (Visual hook) */}
+        <QuoteBanner />
+
+        {/* 8. Latest Releases & Press Articles (Updates before leaving) */}
+        <LatestReleases />
 
         {/* Branded Blue Footer with Contact & Supported Entities */}
         <Footer />

@@ -6,23 +6,27 @@ export function LatestReleases() {
 
   return (
     <section id="news" className="w-full py-20 md:py-28 bg-white scroll-mt-20 lg:scroll-mt-24">
-      {/* 1. Header Section */}
-      <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 px-6">
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-snug pt-1 pb-1">
-          {releases.title}
-          {releases.titleHighlight ? (
-            <span className="text-blue-600"> {releases.titleHighlight}</span>
-          ) : null}
-        </h2>
+      {/* 1. Header Section - Left Aligned with Border */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between max-w-7xl mx-auto mb-12 sm:mb-16 px-6 sm:px-10 lg:px-12">
+        <div className="max-w-2xl border-l-4 border-blue-600 pl-6">
+          <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3 block">Góc Truyền Thông</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-snug">
+            {releases.title}
+            {releases.titleHighlight ? (
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500"> {releases.titleHighlight}</span>
+            ) : null}
+          </h2>
+        </div>
         {releases.subtitle ? (
-          <p className="text-xs sm:text-base text-slate-500 font-medium mt-3 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-500 font-medium mt-6 sm:mt-0 sm:ml-8 max-w-sm leading-relaxed text-left sm:text-right">
             {releases.subtitle}
           </p>
         ) : null}
       </div>
 
-      {/* 2. Alternating Checkerboard Showcase (Full-Width Links to Press Sources) */}
-      <div className="w-full border-y border-slate-200/90 divide-y divide-slate-200/90 bg-white">
+      {/* 2. Alternating Checkerboard Showcase */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full">
+        <div className="w-full border border-slate-200/90 divide-y divide-slate-200/90 bg-white rounded-3xl overflow-hidden shadow-sm">
         {releases.items.map((item, index) => {
           const isImageFirst = index % 2 === 0
 
@@ -36,7 +40,7 @@ export function LatestReleases() {
             >
               {/* Image Column */}
               <div
-                className={`relative w-full aspect-[16/10] md:aspect-auto md:min-h-[420px] lg:min-h-[480px] xl:min-h-[520px] overflow-hidden bg-slate-100 ${
+                className={`relative w-full aspect-video md:aspect-auto md:h-full min-h-[250px] overflow-hidden flex items-center justify-center ${
                   isImageFirst ? 'md:order-1' : 'md:order-2'
                 }`}
               >
@@ -50,7 +54,7 @@ export function LatestReleases() {
 
               {/* Text Column */}
               <div
-                className={`p-8 sm:p-12 md:p-14 lg:p-16 xl:p-20 flex flex-col justify-between bg-white ${
+                className={`p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center bg-white ${
                   isImageFirst ? 'md:order-2' : 'md:order-1'
                 }`}
               >
@@ -81,6 +85,7 @@ export function LatestReleases() {
             </a>
           )
         })}
+        </div>
       </div>
     </section>
   )
