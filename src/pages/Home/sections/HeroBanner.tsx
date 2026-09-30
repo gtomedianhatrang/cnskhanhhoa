@@ -71,32 +71,24 @@ export function HeroBanner() {
       <div className="relative z-20 flex-1 w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
         <div className="max-w-5xl mx-auto text-center">
 
-          {/* 1. CÔNG NGHỆ SỐ - Xuất hiện hiện dần mượt mà tại chỗ */}
+          {/* Title: 4 dòng lớn — NGÀY HỘI / CÔNG NGHỆ SỐ / TỈNH KHÁNH HÒA / NĂM 2026 */}
           <div
             className={`transition-opacity duration-1000 ease-out ${
               isVisible ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <h1 className="font-vietnam text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold uppercase text-white tracking-normal leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.85)]">
-              CÔNG NGHỆ SỐ
+            <h1 className="font-vietnam font-black uppercase tracking-tight text-center flex flex-col gap-2 sm:gap-4">
+              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white">NGÀY HỘI</span>
+              <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cyan-400 whitespace-nowrap">CÔNG NGHỆ SỐ</span>
+              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white">TỈNH KHÁNH HÒA</span>
+              <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl text-cyan-400">NĂM 2026</span>
             </h1>
           </div>
 
-          {/* 2. TỈNH KHÁNH HÒA - Phía dưới, xuất hiện hiện dần */}
-          <div
-            className={`transition-opacity duration-1000 delay-300 ease-out ${
-              isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <p className="font-vietnam text-base sm:text-xl md:text-2xl lg:text-3xl font-extrabold uppercase tracking-[0.25em] sm:tracking-[0.3em] text-white mt-2 sm:mt-3 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-              TỈNH KHÁNH HÒA
-            </p>
-          </div>
-
-          {/* 3. Dòng Thời gian & Địa điểm - Xuất hiện từng chữ từ dưới lên uốn lượn như ngọn sóng */}
+          {/* Dòng thời gian & địa điểm */}
           <div className="mt-10 sm:mt-14 text-xs sm:text-sm md:text-base font-semibold uppercase text-slate-100 tracking-wider sm:tracking-widest drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] flex flex-wrap items-center justify-center">
             {(() => {
-              const fullText = '20 – 21 THÁNG 12, 2025 • CUNG VĂN HÓA THIẾU NHI, TP. NHA TRANG'
+              const fullText = '24 – 26 THÁNG 10, 2026 • QUẢNG TRƯỜNG 2/4, TP. NHA TRANG'
               const words = fullText.split(' ')
               let cumulativeIndex = 0
 
