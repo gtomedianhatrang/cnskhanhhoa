@@ -119,31 +119,33 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
           </a>
         </div>
 
-        {/* Right Navigation Menu - Visible on Tablet (md: >=768px) and Desktop */}
-        <nav className="hidden md:flex items-center space-x-3 md:space-x-4 lg:space-x-6 xl:space-x-8 text-[11px] lg:text-xs uppercase tracking-wider lg:tracking-widest">
-          {header.nav.map((item) => {
-            const isActive = activeNav === item.key
-            return (
-              <button
-                key={item.key}
-                onClick={() => scrollToSection(item.targetId, item.key)}
-                className={`py-1 transition-colors cursor-pointer whitespace-nowrap ${
-                  isScrolled
-                    ? isActive
-                      ? 'text-blue-600 font-black'
-                      : 'text-slate-500 hover:text-blue-600 font-bold'
-                    : isActive
-                      ? 'text-blue-400 font-black'
-                      : 'text-white/70 hover:text-blue-400 font-bold'
-                }`}
-              >
-                <span>{item.label}</span>
-              </button>
-            )
-          })}
+        <div className="flex items-center gap-2 md:gap-0">
+          {/* Right Navigation Menu - Visible on Tablet (md: >=768px) and Desktop */}
+          <nav className="hidden md:flex items-center space-x-3 md:space-x-4 lg:space-x-6 xl:space-x-8 text-[11px] lg:text-xs uppercase tracking-wider lg:tracking-widest mr-3 md:mr-4 lg:mr-6">
+            {header.nav.map((item) => {
+              const isActive = activeNav === item.key
+              return (
+                <button
+                  key={item.key}
+                  onClick={() => scrollToSection(item.targetId, item.key)}
+                  className={`py-1 transition-colors cursor-pointer whitespace-nowrap ${
+                    isScrolled
+                      ? isActive
+                        ? 'text-blue-600 font-black'
+                        : 'text-slate-500 hover:text-blue-600 font-bold'
+                      : isActive
+                        ? 'text-blue-400 font-black'
+                        : 'text-white/70 hover:text-blue-400 font-bold'
+                  }`}
+                >
+                  <span>{item.label}</span>
+                </button>
+              )
+            })}
+          </nav>
 
           {/* Language Dropdown Selector */}
-          <div className="relative pl-3 lg:pl-4 border-l border-slate-300 dark:border-white/20 notranslate shrink-0" translate="no" ref={langDropdownRef}>
+          <div className="relative md:pl-4 md:border-l border-slate-300 dark:border-white/20 notranslate shrink-0" translate="no" ref={langDropdownRef}>
             <button 
               type="button"
               onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
@@ -155,7 +157,7 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
               aria-label="Ngôn ngữ"
               aria-expanded={isLangDropdownOpen}
             >
-              <Globe className={`w-3.5 h-3.5 ${isScrolled ? 'text-blue-600' : 'text-blue-400'}`} />
+              <Globe className={`w-4 h-4 md:w-3.5 md:h-3.5 ${isScrolled ? 'text-blue-600' : 'text-blue-400'}`} />
               <span>{currentLang}</span>
               <ChevronDown 
                 className={`w-3.5 h-3.5 transition-transform duration-200 ${
@@ -166,7 +168,7 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
 
             {/* Dropdown Menu Popup */}
             {isLangDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-32 bg-white border border-slate-200 rounded-xl shadow-lg p-1 z-50 animate-in fade-in zoom-in-95 duration-100">
+              <div className="absolute right-0 mt-3 md:mt-2 w-32 bg-white border border-slate-200 rounded-xl shadow-lg p-1 z-50 animate-in fade-in zoom-in-95 duration-100">
                 {LANGUAGE_OPTIONS.map((opt) => {
                   const isSelected = currentLang === opt.code
                   return (
@@ -189,20 +191,20 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
               </div>
             )}
           </div>
-        </nav>
 
-        {/* Mobile Hamburger Button (Only on < md: < 768px) */}
-        <button 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className={`md:hidden p-2 rounded-xl transition-colors ${
-            isScrolled 
-              ? 'bg-slate-100 text-slate-800 hover:bg-slate-200' 
-              : 'bg-white/10 text-white hover:bg-white/20'
-          }`}
-          aria-label="Toggle Navigation Menu"
-        >
-          <Menu className="w-5 h-5" />
-        </button>
+          {/* Mobile Hamburger Button (Only on < md: < 768px) */}
+          <button 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={`md:hidden p-2 ml-1 rounded-xl transition-colors ${
+              isScrolled 
+                ? 'bg-slate-100 text-slate-800 hover:bg-slate-200' 
+                : 'bg-white/10 text-white hover:bg-white/20'
+            }`}
+            aria-label="Toggle Navigation Menu"
+          >
+            <Menu className="w-5 h-5" />
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer (Clean Solid Right Slide-over) */}
