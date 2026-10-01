@@ -97,7 +97,7 @@ export function IntroSection() {
         </div>
 
         {/* Video Trailer Window */}
-        <div className="mt-20 max-w-4xl mx-auto relative z-10">
+        <div className="mt-20 w-full relative z-10">
           <div className="rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
             <div className="relative aspect-video">
               <iframe 
