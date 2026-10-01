@@ -71,7 +71,7 @@ export function HistoricalHighlights() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white rounded-[2rem] p-6 sm:p-8 shadow-sm border border-slate-100 flex flex-col justify-center text-center hover:shadow-md transition-shadow">
-                  <div className="text-4xl font-black text-slate-900 mb-2">
+                  <div className="text-4xl font-black text-slate-900 mb-2 notranslate" translate="no">
                     <StatCounter valueStr={highlights.cards.buyersValue} inView={inView} />
                   </div>
                   <h4 className="text-sm font-bold text-blue-600 mb-1">{highlights.cards.buyersBadge}</h4>
