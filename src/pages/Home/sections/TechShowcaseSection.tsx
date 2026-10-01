@@ -27,93 +27,35 @@ export function TechShowcaseSection() {
           </div>
         </div>
 
-        {/* Roadmap Layout */}
+        {/* Grid Layout (Thẳng hàng) */}
         <div className="relative w-full mx-auto">
-
-          {/* Continuous Snake Line (Desktop Only) - Circuit Board Style */}
-          <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-[2px] bg-blue-300 -translate-x-1/2 z-0"></div>
-
-          <div className="flex flex-col space-y-16 md:space-y-32">
-            {techShowcase.items.map((item: any, idx: number) => {
-              const isEven = idx % 2 !== 0; // 0 is odd in UI layout (left), 1 is even (right)
-
-              return (
-                <div key={item.id} className="relative z-10 flex flex-col md:flex-row items-center md:items-stretch w-full">
-                  {/* Center Dot (Glowing Circuit Node) */}
-                  <div className="hidden md:block absolute left-1/2 top-1/2 w-3.5 h-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500 z-40"></div>
-
-
-                  {/* LEFT HALF */}
-                  <div className={`w-full md:w-1/2 flex items-center justify-start pr-0 md:pr-8 lg:pr-16 ${isEven ? 'order-2 mt-8 md:mt-0' : 'order-1'} md:order-none`}>
-                    {isEven ? (
-                      // Image is on the left
-                      <>
-                        <div className="relative w-full max-w-md aspect-video md:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-2 border-white transform transition-transform duration-500 hover:scale-105 rotate-2 hover:rotate-0 z-20">
-                          <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                          <div className="absolute inset-0 bg-blue-900/10 hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
-                        </div>
-                      </>
-                    ) : (
-                      // Content is on the left
-                      <>
-                        <div className="bg-white rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-slate-200 border border-slate-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full max-w-lg relative group z-20">
-                          <div className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-200 absolute -top-4 md:-top-6 -right-2 z-0 tracking-tighter group-hover:text-blue-100 transition-colors">
-                            {item.id}
-                          </div>
-                          <div className="relative z-10">
-                            <h3 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight mb-2 md:mb-4 group-hover:text-blue-600 transition-colors">
-                              {item.title}
-                            </h3>
-                            <p className="text-sm md:text-base text-slate-600 leading-relaxed font-medium">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="hidden md:block flex-1 h-[2px] bg-blue-300 z-10 relative -mr-8 lg:-mr-16">
-                          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-400 -ml-1 z-20"></div>
-                        </div>
-                      </>
-                    )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+            {techShowcase.items.map((item: any, idx: number) => (
+              <div 
+                key={item.id} 
+                className="bg-white rounded-[2rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+              >
+                {/* Image Section */}
+                <div className="relative aspect-video overflow-hidden border-b border-slate-100">
+                  <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-60"></div>
+                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl font-black text-blue-600 text-lg shadow-lg">
+                    {item.id}
                   </div>
-
-                  {/* RIGHT HALF */}
-                  <div className={`w-full md:w-1/2 flex items-center justify-end pl-0 md:pl-8 lg:pl-16 ${isEven ? 'order-1' : 'order-2 mt-8 md:mt-0'} md:order-none`}>
-                    {isEven ? (
-                      // Content is on the right
-                      <>
-                        <div className="hidden md:block flex-1 h-[2px] bg-blue-300 z-10 relative -ml-8 lg:-ml-16">
-                          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-400 -mr-1 z-20"></div>
-                        </div>
-                        <div className="bg-white rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-slate-200 border border-slate-100 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 w-full max-w-lg relative group z-20">
-                          <div className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-200 absolute -top-4 md:-top-6 -right-2 z-0 tracking-tighter group-hover:text-blue-100 transition-colors">
-                            {item.id}
-                          </div>
-                          <div className="relative z-10">
-                            <h3 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight mb-2 md:mb-4 group-hover:text-blue-600 transition-colors">
-                              {item.title}
-                            </h3>
-                            <p className="text-sm md:text-base text-slate-600 leading-relaxed font-medium">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      </>
-                    ) : (
-                      // Image is on the right
-                      <>
-                        <div className="relative w-full max-w-md aspect-video md:aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-2 border-white transform transition-transform duration-500 hover:scale-105 -rotate-2 hover:rotate-0 z-20">
-                          <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                          <div className="absolute inset-0 bg-blue-900/10 hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
-                        </div>
-                      </>
-                    )}
-                  </div>
-
                 </div>
-              )
-            })}
+                
+                {/* Content Section */}
+                <div className="p-8 lg:p-10 flex-1 flex flex-col">
+                  <h3 className="text-xl md:text-2xl font-black text-slate-900 uppercase tracking-tight mb-4 group-hover:text-blue-600 transition-colors line-clamp-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm md:text-base leading-relaxed font-medium">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-
         </div>
 
       </div>
