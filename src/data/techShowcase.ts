@@ -13,7 +13,7 @@ export const techShowcaseData = {
       id: '02', 
       title: 'ROBOT TỰ HÀNH & LOGISTICS', 
       image: '/showcase/robot-tu-hanh-logistics.png', 
-      desc: 'Trình diễn giải pháp kho vận thông minh với robot AGV/AMR. Trải nghiệm quy trình tự động hóa bốc xếp và điều phối hàng hóa bằng công nghệ hiện đại.' 
+      desc: 'Trình diễn giải pháp kho vận thông minh với robot AGV/AMR. Trải nghiệm quy trình tự động hóa vận hành và luân chuyển hàng hóa bằng công nghệ hiện đại.' 
     },
     { 
       id: '03', 
@@ -25,7 +25,7 @@ export const techShowcaseData = {
       id: '04', 
       title: 'MÔ HÌNH DU LỊCH THỰC TẾ ẢO', 
       image: '/showcase/trai-nghiem-du-lich-so.png', 
-      desc: 'Khám phá các điểm đến du lịch nổi tiếng thông qua kính VR/AR và công nghệ bản đồ số 360, mang lại trải nghiệm tương tác không giới hạn.' 
+      desc: 'Khám phá các điểm đến du lịch nổi tiếng thông qua kính VR/AR và công nghệ bản đồ số 360, mang đến trải nghiệm tham quan trực quan và sống động.'
     },
     {
       id: '05',
