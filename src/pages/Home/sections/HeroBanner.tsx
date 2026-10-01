@@ -1,21 +1,10 @@
 import { Header } from '@/components/Header'
 import { ChevronDown } from 'lucide-react'
-import { useEffect, useState } from 'react'
 import { useUIStore } from '@/store'
 
 export function HeroBanner() {
-  const [isVisible, setIsVisible] = useState(false)
-
   const currentLang = useUIStore((state) => state.currentLang)
   const isEnglish = currentLang === 'EN'
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true)
-    }, 100)
-
-    return () => clearTimeout(timer)
-  }, [])
 
   const scrollToStatement = () => {
     document.getElementById('about')?.scrollIntoView({
