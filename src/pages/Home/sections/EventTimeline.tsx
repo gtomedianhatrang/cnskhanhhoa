@@ -1,7 +1,7 @@
 import React from 'react'
-import { Clock, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import { siteData } from '@/data'
-import type { TimelineSession } from '@/data/types'
+import type { TimelineDay, TimelineSession } from '@/data/types'
 
 // Prevent "AI" from being translated incorrectly
 const protectAI = (text: string) => {
@@ -36,64 +36,40 @@ export function EventTimeline() {
           </p>
         </div>
 
-        {/* ALL DAYS CONTENT */}
-        <div className="w-full flex flex-col gap-12 lg:gap-16">
-          {timeline.days.map((day: any) => (
-            <div key={day.id} className="flex flex-col items-start gap-4 xl:flex-row xl:gap-8">
-              
-              {/* LEFT - DATE INFO */}
-              <div className="mb-4 w-full shrink-0 border-b border-slate-200 pb-4 pt-1 xl:mb-0 xl:w-64 xl:border-b-0 xl:border-r xl:pr-6 xl:pb-0">
-                <span className="block text-[10px] font-black uppercase tracking-widest text-slate-400">
-                  {day.dateFull}
-                </span>
-                <span className="mt-1 block whitespace-nowrap font-display text-2xl font-black leading-tight tracking-tight text-slate-900 sm:text-3xl">
-                  {day.date}
-                </span>
-                <span className="mt-2 block text-xs font-bold text-blue-600">
-                  {day.dayNumber}
-                </span>
-                <span className="mt-1.5 block text-sm font-medium leading-relaxed text-slate-500">
+        <div className="flex w-full flex-col gap-12 lg:gap-16">
+          {timeline.days.map((day: TimelineDay) => (
+            <div key={day.id}>
+              <div className="mb-5 flex flex-wrap items-center gap-x-5 gap-y-2">
+                <h3 className="border-l-4 border-blue-600 bg-blue-50 px-4 py-3 text-base font-black uppercase text-blue-600 sm:text-lg">
+                  {day.sublabel || `${day.dayNumber} - ${day.dateFull || day.date}`}
+                </h3>
+                <p className="text-sm font-medium text-slate-500">
                   {protectAI(day.theme)}
-                </span>
+                </p>
               </div>
 
-              {/* RIGHT - SESSION CARDS */}
-              <div className="grid w-full flex-1 grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+              <ol className="ml-1.5 border-l border-slate-200">
                 {day.sessions.map((session: TimelineSession, sessionIndex: number) => (
-                  <div
+                  <li
                     key={`${day.id}-${session.time}-${sessionIndex}`}
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition-all duration-300 hover:border-blue-400/80 hover:shadow-xl sm:p-6"
+                    className="relative grid grid-cols-[6.5rem_minmax(0,1fr)] items-start gap-x-3 py-5 pl-4 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-x-5 sm:pl-7 lg:grid-cols-[9rem_minmax(0,1fr)] lg:gap-x-7"
                   >
-                    {/* Top accent */}
-                    <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-400 to-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-                    <div>
-                      {/* Tag */}
-                      <span className="mb-3 inline-block rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-[10px] font-black uppercase tracking-widest text-slate-600">
-                        {protectAI(session.tag)}
-                      </span>
-
-                      {/* Title */}
-                      <h4 className="text-sm font-black leading-snug text-slate-900 transition-colors group-hover:text-blue-600 sm:text-base">
+                    <span aria-hidden="true" className="absolute -left-1.5 top-7 h-3 w-3 rounded-full border-2 border-slate-50 bg-blue-500" />
+                    <span className="whitespace-nowrap text-sm font-black tabular-nums leading-7 text-blue-600 sm:text-lg">
+                      {session.time}
+                    </span>
+                    <div className="min-w-0">
+                      <h4 className="text-base font-semibold leading-7 text-slate-900 lg:text-lg">
                         {protectAI(session.title)}
                       </h4>
-
-                      {/* Time */}
-                      <div className="mt-4 flex items-center gap-2 text-xs font-semibold text-slate-500">
-                        <Clock className="h-4 w-4 shrink-0 text-blue-500" />
-                        <span>{session.time}</span>
+                      <div className="mt-2 flex items-start gap-1.5 text-sm font-medium leading-6 text-slate-500">
+                        <MapPin aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-rose-500" />
+                        <span>{session.location}</span>
                       </div>
                     </div>
-
-                    {/* Location */}
-                    <div className="mt-5 flex items-start gap-1.5 border-t border-slate-100 pt-4 text-xs font-medium text-slate-500">
-                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-rose-500" />
-                      <span className="leading-relaxed">{session.location}</span>
-                    </div>
-                  </div>
+                  </li>
                 ))}
-              </div>
-
+              </ol>
             </div>
           ))}
         </div>

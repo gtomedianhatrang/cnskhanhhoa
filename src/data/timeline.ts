@@ -1,16 +1,16 @@
 export const timelineData = {
   title: 'LỊCH TRÌNH HOẠT ĐỘNG',
   titleHighlight: '',
-  subtitle: 'Ngày hội Công nghệ số tỉnh Khánh Hòa năm 2026 | Từ ngày 24/10 – 26/10/2026',
+  subtitle: 'Ngày hội Công nghệ số tỉnh Khánh Hòa năm 2026 | Từ ngày 24-10 – 26-10-2026',
   updatedDate: 'CẬP NHẬT MỚI NHẤT',
   days: [
     {
       id: 'day-1',
       dayNumber: 'NGÀY 1',
       date: '24 THÁNG 10',
-      dateFull: '24/10/2026',
-      label: 'Thứ 7 – 24/10/2026',
-      sublabel: 'NGÀY 1 – 24/10/2026 (THỨ 7)',
+      dateFull: '24-10-2026',
+      label: 'Thứ 7 – 24-10-2026',
+      sublabel: 'NGÀY 1 – 24-10-2026 (THỨ 7)',
       theme: 'Khai mạc & Triển lãm',
       sessions: [
         {
@@ -59,9 +59,9 @@ export const timelineData = {
       id: 'day-2',
       dayNumber: 'NGÀY 2',
       date: '25 THÁNG 10',
-      dateFull: '25/10/2026',
-      label: 'Chủ Nhật – 25/10/2026',
-      sublabel: 'NGÀY 2 – 25/10/2026 (CHỦ NHẬT)',
+      dateFull: '25-10-2026',
+      label: 'Chủ Nhật – 25-10-2026',
+      sublabel: 'NGÀY 2 – 25-10-2026 (CHỦ NHẬT)',
       theme: 'Hội thảo & Kết nối',
       sessions: [
         {
@@ -81,7 +81,7 @@ export const timelineData = {
           stageDotColor: 'bg-blue-500',
         },
         {
-          time: '9:00/15:00',
+          time: '9:00 - 15:00',
           title: 'Livestream quảng bá sản phẩm OCOP trên mạng xã hội và sàn TMĐT',
           location: 'Quảng trường 2/4',
           tag: 'LIVESTREAM',
@@ -110,9 +110,9 @@ export const timelineData = {
       id: 'day-3',
       dayNumber: 'NGÀY 3',
       date: '26 THÁNG 10',
-      dateFull: '26/10/2026',
-      label: 'Thứ 2 – 26/10/2026',
-      sublabel: 'NGÀY 3 – 26/10/2026 (THỨ 2)',
+      dateFull: '26-10-2026',
+      label: 'Thứ 2 – 26-10-2026',
+      sublabel: 'NGÀY 3 – 26-10-2026 (THỨ 2)',
       theme: 'Bế mạc & Tổng kết',
       sessions: [
         {
