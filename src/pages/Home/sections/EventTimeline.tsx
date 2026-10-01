@@ -38,8 +38,8 @@ export function EventTimeline() {
 
         {/* ALL DAYS CONTENT */}
         <div className="w-full flex flex-col gap-12 lg:gap-16">
-          {timeline.days.map((day: TimelineDay) => (
-            <div key={day.id} className="flex flex-col items-start gap-4 xl:flex-row xl:gap-8 bg-white/50 p-6 rounded-[2rem] border border-slate-100 shadow-sm">
+          {timeline.days.map((day: any) => (
+            <div key={day.id} className="flex flex-col items-start gap-4 xl:flex-row xl:gap-8">
               
               {/* LEFT - DATE INFO */}
               <div className="mb-4 w-full shrink-0 border-b border-slate-200 pb-4 pt-1 xl:mb-0 xl:w-64 xl:border-b-0 xl:border-r xl:pr-6 xl:pb-0">
