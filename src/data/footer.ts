@@ -1,9 +1,11 @@
 export const footerData = {
-  contactTitle: 'LIÊN HỆ BAN TỔ CHỨC',
+  contactTitle: 'THÔNG TIN LIÊN HỆ',
   contacts: [
-    { label: 'Cơ quan Thường trực', email: 'sokhcn@khanhhoa.gov.vn' },
-    { label: 'Hỗ trợ Doanh nghiệp', email: 'doanhnghiep@cnskhanhhoa.vn' },
-    { label: 'Báo chí & Truyền thông', email: 'media@cnskhanhhoa.vn' },
+    { label: 'Cơ quan chỉ đạo', value: 'UBND tỉnh Khánh Hòa', href: '' },
+    { label: 'Đơn vị tổ chức', value: 'Sở Khoa học Công nghệ', href: '' },
+    { label: 'Địa chỉ', value: '135 Thống Nhất, phường Nha Trang, tỉnh Khánh Hòa', href: '' },
+    { label: 'Điện thoại', value: '(0258) 3563531', href: 'tel:02583563531' },
+    { label: 'Email', value: 'skhcn@khanhhoa.gov.vn', href: 'mailto:skhcn@khanhhoa.gov.vn' },
   ],
   broughtToYouByTitle: 'CƠ QUAN CHỈ ĐẠO & CHỦ TRÌ:',
   broughtToYouBy: [

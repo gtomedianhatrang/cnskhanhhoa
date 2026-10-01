@@ -26,12 +26,16 @@ export function Footer() {
                   <p className="font-bold text-blue-100 uppercase tracking-wider text-[11px] mb-1">
                     {item.label}:
                   </p>
-                  <a
-                    href={`mailto:${item.email}`}
-                    className="font-semibold text-white hover:text-cyan-200 transition-colors underline underline-offset-4"
-                  >
-                    {item.email}
-                  </a>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      className="font-semibold text-white hover:text-cyan-200 transition-colors underline underline-offset-4 break-words"
+                    >
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="font-semibold text-white leading-relaxed">{item.value}</p>
+                  )}
                 </div>
               ))}
             </div>
