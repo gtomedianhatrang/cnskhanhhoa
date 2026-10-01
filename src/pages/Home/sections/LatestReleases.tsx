@@ -6,19 +6,18 @@ export function LatestReleases() {
 
   return (
     <section id="news" className="w-full py-20 md:py-28 bg-white scroll-mt-20 lg:scroll-mt-24">
-      {/* 1. Header Section - Left Aligned with Border */}
-      <div className="flex flex-col sm:flex-row sm:items-end justify-between max-w-7xl mx-auto mb-12 sm:mb-16 px-6 sm:px-10 lg:px-12">
-        <div className="max-w-2xl border-l-4 border-blue-600 pl-6">
-          <span className="text-blue-600 font-bold tracking-widest uppercase text-sm mb-3 block">Góc Truyền Thông</span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-snug">
+      {/* 1. Header Section */}
+      <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto mb-16 px-6 sm:px-10 lg:px-12 border-b border-slate-200 pb-8">
+        <div>
+          <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
             {releases.title}
             {releases.titleHighlight ? (
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500"> {releases.titleHighlight}</span>
+              <span className="text-blue-600 ml-2">{releases.titleHighlight}</span>
             ) : null}
           </h2>
         </div>
         {releases.subtitle ? (
-          <p className="text-sm sm:text-base text-slate-500 font-medium mt-6 sm:mt-0 sm:ml-8 max-w-sm leading-relaxed text-left sm:text-right">
+          <p className="text-slate-500 mt-4 md:mt-0 max-w-sm text-center md:text-right font-medium leading-relaxed">
             {releases.subtitle}
           </p>
         ) : null}

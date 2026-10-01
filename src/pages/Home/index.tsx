@@ -2,16 +2,15 @@ import { useState, useEffect } from 'react'
 import { ArrowUp } from 'lucide-react'
 import {
   HeroBanner,
-  StatementSection,
+  IntroSection,
   QuoteBanner,
   HistoricalHighlights,
   EventTimeline,
   GallerySection,
   LatestReleases,
   // PartnersSection,
-  RegistrationSection,
-  CoreValuesSection,
   TechShowcaseSection,
+  // SpeakersSpotlight,
 } from './sections'
 import { Footer } from '@/components/Footer'
 
@@ -44,7 +43,7 @@ export function HomePage() {
       {/* === Floating Back to Top Button === */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 p-3.5 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-500 text-white shadow-xl hover:shadow-[0_0_20px_rgba(6,182,212,0.6)] hover:-translate-y-1 transition-all duration-500 cursor-pointer ${
+        className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 p-3.5 rounded-full bg-linear-to-tr from-blue-600 to-cyan-500 text-white shadow-xl hover:shadow-[0_0_20px_rgba(6,182,212,0.6)] hover:-translate-y-1 transition-all duration-500 cursor-pointer ${
           showBackToTop ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-12 invisible pointer-events-none'
         }`}
         aria-label="Lên đầu trang"
@@ -57,17 +56,17 @@ export function HomePage() {
 
       {/* 2. Main Page Content */}
       <main className="relative bg-white">
-        {/* 1. Statement / Mission Editorial Intro */}
-        <StatementSection />
-
-        {/* 2. Core Values / Pillars (The foundation) */}
-        <CoreValuesSection />
+        {/* 1 & 2. Intro Section (Core Values + Statement) */}
+        <IntroSection />
 
         {/* 3. Tech Showcase (Zig-Zag) */}
         <TechShowcaseSection />
 
         {/* 4. 4-Day Event Timeline & Detailed Sessions */}
         <EventTimeline />
+
+        {/* 4.5 Speakers */}
+        {/* <SpeakersSpotlight /> */}
 
         {/* 5. Historical Highlights (Stats & Achievements) */}
         <HistoricalHighlights />

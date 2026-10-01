@@ -71,11 +71,12 @@ export function GallerySection() {
     <section id="gallery" className="w-full py-20 md:py-28 bg-linear-to-b from-slate-50/90 via-blue-50/25 to-slate-100/70 border-t border-slate-200/80 scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* 1. Header Section */}
-        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900 leading-[1.3] pt-1 pb-1">
-            KHÔNG GIAN TRIỂN LÃM &<br className="hidden md:block" /> TRẢI NGHIỆM <span className="text-blue-600">SỰ KIỆN</span>
+        <div className="flex flex-col items-start mb-16">
+          <p className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-3">{gallery.tagline}</p>
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            {gallery.title} <span className="italic text-slate-400 font-light">{gallery.titleHighlight}</span>
           </h2>
-          <p className="text-xs sm:text-base text-slate-500 font-medium mt-3 leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-500 font-medium mt-4 max-w-lg">
             {gallery.subtitle}
           </p>
         </div>

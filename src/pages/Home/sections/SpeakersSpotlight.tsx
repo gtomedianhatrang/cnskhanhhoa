@@ -33,32 +33,20 @@ export function SpeakersSpotlight() {
       {/* Mosaic Grid Container */}
       <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-1 bg-slate-100">
         
-        {/* 1. Header Box (Full Width) - Light Mode */}
-        <div className="col-span-2 md:col-span-4 lg:col-span-4 p-8 sm:p-12 lg:p-14 flex flex-col items-center justify-center text-center relative min-h-[220px] sm:min-h-[280px] overflow-hidden group">
-          {/* Decorative background elements */}
-
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-40 group-hover:scale-125 transition-transform duration-700 pointer-events-none" />
+        {/* 1. Header Box (Full Width) */}
+        <div className="col-span-2 md:col-span-4 lg:col-span-4 py-16 flex flex-col justify-center text-center relative overflow-hidden group">
+          {/* Watermark Text */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[80px] sm:text-[120px] md:text-[160px] font-black text-slate-200/50 select-none pointer-events-none tracking-tighter whitespace-nowrap z-0">
+            {speakers.watermark}
+          </div>
           
           <div className="relative z-10 flex flex-col items-center">
-            <div className="inline-flex items-center gap-3 mb-4">
-              <span className="w-4 sm:w-6 h-[2px] bg-blue-600 rounded-full"></span>
-              <span className="text-blue-600 font-bold text-[10px] sm:text-xs tracking-widest uppercase">Speakers</span>
-              <span className="w-4 sm:w-6 h-[2px] bg-blue-600 rounded-full"></span>
-            </div>
-            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl xl:text-[42px] font-black tracking-tight text-slate-900 leading-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-black tracking-tight text-slate-900 leading-tight">
               {speakers.title}
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-medium mt-4 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-slate-600 font-medium mt-4 leading-relaxed max-w-2xl mx-auto">
               {speakers.subtitle}
             </p>
-          </div>
-
-          {/* Bottom Accent */}
-          <div className="flex items-center justify-center mt-8 relative z-10">
-            <div className="flex items-center gap-2">
-              <span className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-widest">Khám phá</span>
-              <span className="w-2 h-2 rounded-full bg-blue-600 shadow-[0_0_10px_rgba(37,99,235,0.6)] animate-pulse" />
-            </div>
           </div>
         </div>
 
