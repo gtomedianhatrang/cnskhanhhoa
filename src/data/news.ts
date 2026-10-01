@@ -1,9 +1,9 @@
 import type { NewsItem } from './types'
 
 export const newsData = {
-  title: 'BÀI VIẾT & TIN TỨC',
-  titleHighlight: 'MỚI NHẤT',
-  subtitle: 'Cập nhật diễn biến, thông cáo báo chí và các hoạt động công nghệ nổi bật tại Ngày hội Công nghệ số.',
+  title: 'TIN TỨC MỚI NHẤT',
+  titleHighlight: '',
+  subtitle: 'Cập nhật Thông cáo báo chí; Các bài viết chuyên sâu và tin tức mới nhất xuyên suốt Ngày hội Công nghệ số',
   viewAllText: 'Xem tất cả tin tức',
   readArticleText: 'Đọc bài viết',
   items: [

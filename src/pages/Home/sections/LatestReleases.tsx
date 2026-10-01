@@ -7,9 +7,9 @@ export function LatestReleases() {
   return (
     <section id="news" className="w-full py-20 md:py-28 bg-white scroll-mt-20 lg:scroll-mt-24">
       {/* 1. Header Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto mb-16 px-6 sm:px-10 lg:px-12 border-b border-slate-200 pb-8">
+      <div className="flex flex-col items-start gap-4 max-w-7xl mx-auto mb-16 px-6 sm:px-10 lg:px-12 border-b border-slate-200 pb-8">
         <div>
-          <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
             {releases.title}
             {releases.titleHighlight ? (
               <span className="text-blue-600 ml-2">{releases.titleHighlight}</span>
@@ -17,7 +17,7 @@ export function LatestReleases() {
           </h2>
         </div>
         {releases.subtitle ? (
-          <p className="text-slate-500 mt-4 md:mt-0 max-w-sm text-center md:text-right font-medium leading-relaxed">
+          <p className="w-full text-slate-500 text-sm sm:text-base text-pretty font-medium leading-relaxed">
             {releases.subtitle}
           </p>
         ) : null}
