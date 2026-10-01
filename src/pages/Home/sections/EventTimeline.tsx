@@ -1,7 +1,7 @@
 import React from 'react'
 import { Clock, MapPin } from 'lucide-react'
 import { siteData } from '@/data'
-import type { TimelineSession, TimelineDay } from '@/data/types'
+import type { TimelineSession } from '@/data/types'
 
 // Prevent "AI" from being translated incorrectly
 const protectAI = (text: string) => {
