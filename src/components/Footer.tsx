@@ -22,10 +22,10 @@ export function Footer() {
 
             <div className="space-y-6 text-xs sm:text-sm">
               {footer.contacts.map((item, idx) => (
-                <div key={idx}>
-                  <p className="font-bold text-blue-100 uppercase tracking-wider text-[11px] mb-1">
+                <div key={idx} className="flex flex-wrap items-baseline gap-1.5">
+                  <span className="font-bold text-blue-100 uppercase tracking-wider text-[11px]">
                     {item.label}:
-                  </p>
+                  </span>
                   {item.href ? (
                     <a
                       href={item.href}
@@ -34,7 +34,7 @@ export function Footer() {
                       {item.value}
                     </a>
                   ) : (
-                    <p className="font-semibold text-white leading-relaxed">{item.value}</p>
+                    <span className="font-semibold text-white leading-relaxed">{item.value}</span>
                   )}
                 </div>
               ))}
