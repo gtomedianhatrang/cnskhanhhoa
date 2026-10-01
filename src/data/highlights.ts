@@ -1,8 +1,9 @@
 import type { MetricItem } from './types'
 
 export const highlightsData = {
-  title: 'QUY MÔ & KHÔNG GIAN TRIỂN LÃM',
-  subtitle: 'GIẢI PHÁP & MÔ HÌNH CÔNG NGHỆ TIÊN TIẾN',
+  title: 'Dấu ấn',
+  titleHighlight: 'Công nghệ',
+  subtitle: 'Sự bứt phá của hệ sinh thái Khánh Hòa qua những cột mốc thực tế.',
   metrics: [
     { value: '60+', label: 'Gian Hàng Doanh Nghiệp', color: 'text-blue-600' },
     { value: '10+', label: 'Gian Hàng F&B', color: 'text-amber-500' },
@@ -18,7 +19,6 @@ export const highlightsData = {
       { label: 'Mô hình Giáo dục & Lập trình (STEM, Drone)', percent: '20%', color: 'bg-indigo-400' },
       { label: 'Khu vui chơi & Photobooth công nghệ cao', percent: '15%', color: 'bg-lime-400' },
     ],
-    footerText: 'Tương tác thông minh - Ứng dụng toàn diện',
   },
   cards: {
     anniversaryBadge: 'MÔ HÌNH',

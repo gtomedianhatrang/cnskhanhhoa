@@ -14,6 +14,7 @@ import { galleryData } from './gallery'
 import { newsData } from './news'
 import { partnersData } from './partners'
 import { footerData } from './footer'
+import { techShowcaseData } from './techShowcase'
 
 // Gom toàn bộ data vào siteData
 export const siteData = {
@@ -28,6 +29,7 @@ export const siteData = {
   releases: newsData,
   partners: partnersData,
   footer: footerData,
+  techShowcase: techShowcaseData,
 }
 
 // Re-export toàn bộ types
@@ -44,3 +46,4 @@ export * from './speakers'
 export * from './gallery'
 export * from './news'
 export * from './footer'
+export * from './techShowcase'

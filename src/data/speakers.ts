@@ -1,8 +1,10 @@
 import type { SpeakerItem } from './types'
 
 export const speakersData = {
+  watermark: 'SPEAKERS',
   title: 'DIỄN GIẢ & CHUYÊN GIA ĐẦU NGÀNH',
   subtitle: 'Hội tụ các nhà lãnh đạo công nghệ, chuyên gia đổi mới sáng tạo và doanh nghiệp tiên phong',
+  buttonText: 'Khám phá',
   list: [
     {
       id: 'sp-1',

@@ -1,8 +1,9 @@
 import type { GalleryItem } from './types'
 
 export const galleryData = {
-  title: 'KHÔNG GIAN TRIỂN LÃM & TRẢI NGHIỆM',
-  titleHighlight: 'SỰ KIỆN',
+  tagline: 'Khoảnh khắc',
+  title: 'Thư viện',
+  titleHighlight: 'hình ảnh',
   subtitle: 'Hình ảnh nổi bật về các hoạt động trưng bày, trình diễn và trải nghiệm công nghệ số xuyên suốt chuỗi sự kiện Ngày hội Công nghệ số tỉnh Khánh Hòa năm 2025.',
   categories: [
     { id: 'all', label: 'Tất cả hình ảnh', count: 19 },
