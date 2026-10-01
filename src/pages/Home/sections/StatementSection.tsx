@@ -100,7 +100,7 @@ export function StatementSection() {
           <div className="relative aspect-video">
             <iframe 
               className="absolute inset-0 w-full h-full"
-              src="https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=0&rel=0" 
+              src="https://www.youtube.com/embed/yVdRwxtYSww?autoplay=0&rel=0" 
               title="Trailer Ngày Hội Công Nghệ Số"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen
