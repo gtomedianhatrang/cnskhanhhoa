@@ -108,10 +108,6 @@ export function IntroSection() {
                 allowFullScreen
               ></iframe>
             </div>
-          </div>
-          <p className="text-center text-sm font-bold text-slate-500 mt-4 uppercase tracking-widest">
-            Video Trailer Sự Kiện
-          </p>
         </div>
 
       </div>
