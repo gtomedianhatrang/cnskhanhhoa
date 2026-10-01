@@ -109,7 +109,7 @@ export function IntroSection() {
               ></iframe>
             </div>
         </div>
-
+      </div>
       </div>
     </section>
   )
