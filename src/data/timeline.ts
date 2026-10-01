@@ -1,7 +1,7 @@
 export const timelineData = {
   title: 'LỊCH TRÌNH HOẠT ĐỘNG',
   titleHighlight: '',
-  subtitle: 'Ngày hội Công nghệ số tỉnh Khánh Hòa năm 2026 | Từ ngày 24-10 – 26-10-2026',
+  subtitle: 'Ngày hội Công nghệ số tỉnh Khánh Hòa năm 2026 | Từ ngày 24.10 đến ngày 26.10.2026',
   updatedDate: 'CẬP NHẬT MỚI NHẤT',
   days: [
     {
