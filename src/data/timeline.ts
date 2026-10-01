@@ -1,5 +1,3 @@
-import type { TimelineDay } from './types'
-
 export const timelineData = {
   title: 'LỊCH TRÌNH HOẠT ĐỘNG',
   titleHighlight: '',
