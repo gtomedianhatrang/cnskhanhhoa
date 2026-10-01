@@ -20,10 +20,10 @@ export function Footer() {
               {footer.contactTitle}
             </h3>
 
-            <div className="space-y-6 text-xs sm:text-sm">
+            <div className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-6 text-xs sm:text-sm items-baseline">
               {footer.contacts.map((item, idx) => (
-                <div key={idx} className="flex flex-wrap items-baseline gap-1.5">
-                  <span className="font-bold text-blue-100 uppercase tracking-wider text-[11px]">
+                <div key={idx} className="contents">
+                  <span className="font-bold text-blue-100 uppercase tracking-wider text-[11px] whitespace-nowrap">
                     {item.label}:
                   </span>
                   {item.href ? (
