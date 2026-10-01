@@ -10,7 +10,7 @@ export const timelineData = {
       date: '24 THÁNG 10',
       dateFull: '24-10-2026',
       label: 'Thứ 7 – 24-10-2026',
-      sublabel: 'NGÀY 1 – 24-10-2026 (THỨ 7)',
+      sublabel: 'NGÀY 1 | THỨ 7, 24/10/2026',
       theme: 'Khai mạc & Triển lãm',
       sessions: [
         {
@@ -61,7 +61,7 @@ export const timelineData = {
       date: '25 THÁNG 10',
       dateFull: '25-10-2026',
       label: 'Chủ Nhật – 25-10-2026',
-      sublabel: 'NGÀY 2 – 25-10-2026 (CHỦ NHẬT)',
+      sublabel: 'NGÀY 2 | CHỦ NHẬT, 25/10/2026',
       theme: 'Hội thảo & Kết nối',
       sessions: [
         {
@@ -112,7 +112,7 @@ export const timelineData = {
       date: '26 THÁNG 10',
       dateFull: '26-10-2026',
       label: 'Thứ 2 – 26-10-2026',
-      sublabel: 'NGÀY 3 – 26-10-2026 (THỨ 2)',
+      sublabel: 'NGÀY 3 | THỨ 2, 26/10/2026',
       theme: 'Bế mạc & Tổng kết',
       sessions: [
         {

@@ -52,7 +52,7 @@ export function TechShowcaseSection() {
                     ) : (
                       // Content is on the left
                       <>
-                        <div className="bg-white rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-slate-200 border border-slate-100 hover:shadow-2xl transition-shadow duration-300 w-full h-full flex items-center relative group z-20">
+                        <div className="py-6 lg:py-8 w-full h-full flex items-center relative group z-20">
                           <div className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-200 absolute -top-4 md:-top-6 -right-2 z-0 tracking-tighter group-hover:text-blue-100 transition-colors">
                             {item.id}
                           </div>
@@ -80,7 +80,7 @@ export function TechShowcaseSection() {
                         <div className="hidden md:block absolute left-1/2 top-1/2 h-[2px] w-8 lg:w-16 bg-blue-300 z-10">
                           <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-400 -mr-1 z-20"></div>
                         </div>
-                        <div className="bg-white rounded-[2rem] p-6 lg:p-8 shadow-xl shadow-slate-200 border border-slate-100 hover:shadow-2xl transition-shadow duration-300 w-full h-full flex items-center relative group z-20">
+                        <div className="py-6 lg:py-8 w-full h-full flex items-center relative group z-20">
                           <div className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-200 absolute -top-4 md:-top-6 -right-2 z-0 tracking-tighter group-hover:text-blue-100 transition-colors">
                             {item.id}
                           </div>

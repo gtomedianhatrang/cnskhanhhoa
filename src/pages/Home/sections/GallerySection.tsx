@@ -72,9 +72,8 @@ export function GallerySection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* 1. Header Section */}
         <div className="flex flex-col items-start mb-16">
-          <p className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-3">{gallery.tagline}</p>
           <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            {gallery.title} <span className="italic text-slate-400 font-light">{gallery.titleHighlight}</span>
+            {gallery.title} {gallery.titleHighlight}
           </h2>
           <p className="text-sm sm:text-base text-slate-500 font-medium mt-4 max-w-lg">
             {gallery.subtitle}
