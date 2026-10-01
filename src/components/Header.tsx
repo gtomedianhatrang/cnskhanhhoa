@@ -149,67 +149,8 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
               </div>
             )}
           </div>
-
-          {/* Mobile Hamburger Button (Only on < md: < 768px) */}
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden p-2 ml-1 rounded-xl transition-colors ${
-              isScrolled 
-                ? 'bg-slate-100 text-slate-800 hover:bg-slate-200' 
-                : 'bg-white/10 text-white hover:bg-white/20'
-            }`}
-            aria-label="Toggle Navigation Menu"
-          >
-            <Menu className="w-5 h-5" />
-          </button>
         </div>
       </div>
-
-      {/* Mobile Drawer (Clean Solid Right Slide-over) */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-50">
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-          {/* Drawer Sheet */}
-          <div className="absolute inset-y-0 right-0 w-full max-w-sm bg-slate-950 p-6 flex flex-col justify-between text-white shadow-2xl animate-in slide-in-from-right duration-300">
-            <div className="flex items-center justify-end pb-5 border-b border-slate-800">
-              <button 
-                onClick={() => setIsMobileMenuOpen(false)} 
-                className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
-                aria-label="Đóng menu"
-              >
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            
-            {/* Mobile Language Switcher */}
-            <div className="grid grid-cols-2 gap-2 pt-4 notranslate mt-auto" translate="no">
-              {LANGUAGE_OPTIONS.map((opt) => {
-                const isSelected = currentLang === opt.code
-                return (
-                  <button
-                    key={opt.code}
-                    onClick={() => {
-                      setCurrentLang(opt.code)
-                      setIsMobileMenuOpen(false)
-                    }}
-                    className={`py-2.5 rounded-xl text-xs font-bold transition-colors cursor-pointer ${
-                      isSelected
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-slate-900 border border-slate-800 text-slate-400 hover:text-white'
-                    }`}
-                  >
-                    {opt.label}
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   )
 }
