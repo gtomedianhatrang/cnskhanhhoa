@@ -102,7 +102,7 @@ export function IntroSection() {
             <div className="relative aspect-video">
               <iframe 
                 className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/t1VRX0ZRT9Q?autoplay=1&mute=1&rel=0" 
+                src="https://www.youtube.com/embed/yVdRwxtYSww?autoplay=1&mute=1&rel=0&start=10" 
                 title="Trailer Ngày Hội Công Nghệ Số"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen

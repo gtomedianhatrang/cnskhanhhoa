@@ -1,6 +1,5 @@
 export const techShowcaseData = {
-  title: 'Không gian',
-  titleHighlight: 'Trải nghiệm',
+  title: 'Không gian trải nghiệm',
   subtitle: 'Khám phá trực tiếp các giải pháp đột phá và mô hình công nghệ hàng đầu tại khu vực triển lãm.',
   items: [
     { 
