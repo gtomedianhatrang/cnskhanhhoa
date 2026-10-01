@@ -1,168 +1,120 @@
 import { Header } from '@/components/Header'
 import { ChevronDown } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { useUIStore } from '@/store'
 
 export function HeroBanner() {
   const [isVisible, setIsVisible] = useState(false)
 
+  const currentLang = useUIStore((state) => state.currentLang)
+  const isEnglish = currentLang === 'EN'
+
   useEffect(() => {
-    // Trigger entrance animations after mount
-    const timer = setTimeout(() => setIsVisible(true), 100)
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, 100)
+
     return () => clearTimeout(timer)
   }, [])
 
   const scrollToStatement = () => {
-    const nextSection = document.getElementById('statement')
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' })
-    }
+    document.getElementById('about')?.scrollIntoView({
+      behavior: 'smooth',
+    })
   }
-
 
   return (
     <section
       id="home"
-      className="relative w-full min-h-[100dvh] flex flex-col text-white overflow-hidden select-none"
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-slate-950
+        text-white
+        select-none
+        lg:h-screen
+      "
     >
-      {/* === Background Layer === */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/herobanner.png"
-          alt="Ngày Hội Công Nghệ Số Khánh Hòa"
-          className="w-full h-full object-cover object-center"
-        />
-        {/* Subtle gradient overlay - ensures image is bright and clearly visible while maintaining contrast */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-transparent to-slate-950/35" />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/15 via-transparent to-slate-950/15" />
-      </div>
+      {/* ================= BACKGROUND ================= */}
+      <img
+        src="/herobanner.png"
+        alt={
+          isEnglish
+            ? 'Khanh Hoa Digital Technology Festival 2026'
+            : 'Ngày Hội Công Nghệ Số Khánh Hòa 2026'
+        }
+        className="
+          block
+          w-full
+          h-auto
+          lg:absolute
+          lg:inset-0
+          lg:h-full
+          lg:object-cover
+          lg:object-center
+        "
+      />
 
-      {/* === Animated Decorative Orbs === */}
-      <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
-        {/* Top-right cyan orb */}
-        <div
-          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full opacity-20"
-          style={{
-            background: 'radial-gradient(circle, rgba(6,182,212,0.5) 0%, transparent 70%)',
-            animation: 'heroOrbFloat 12s ease-in-out infinite',
-          }}
-        />
-        {/* Bottom-left blue orb */}
-        <div
-          className="absolute -bottom-48 -left-48 w-[600px] h-[600px] rounded-full opacity-15"
-          style={{
-            background: 'radial-gradient(circle, rgba(37,99,235,0.5) 0%, transparent 70%)',
-            animation: 'heroOrbFloat 15s ease-in-out infinite reverse',
-          }}
-        />
-        {/* Center subtle glow */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full opacity-10"
-          style={{
-            background: 'radial-gradient(ellipse, rgba(56,189,248,0.4) 0%, transparent 60%)',
-            animation: 'heroOrbPulse 8s ease-in-out infinite',
-          }}
-        />
-      </div>
-
-      {/* === Header === */}
+      {/* ================= HEADER ================= */}
       <Header />
 
-      {/* === Main Hero Content === */}
-      <div className="relative z-20 flex-1 w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-16">
-        <div className="max-w-5xl mx-auto text-center">
+      {/* ================= FOREGROUND CONTENT ================= */}
+      <div className="absolute inset-0 z-10 flex flex-col pointer-events-none">
+        {/* ================= HERO CONTENT (Removed) ================= */}
+        <div className="flex-1" />
 
-          {/* Title: 4 dòng lớn — NGÀY HỘI / CÔNG NGHỆ SỐ / TỈNH KHÁNH HÒA / NĂM 2026 */}
-          <div
-            className={`transition-opacity duration-1000 ease-out ${
-              isVisible ? 'opacity-100' : 'opacity-0'
-            }`}
-          >
-            <h1 className="font-vietnam font-black uppercase tracking-tight text-center flex flex-col gap-2 sm:gap-4">
-              <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white">NGÀY HỘI</span>
-              <span className="block text-5xl sm:text-6xl md:text-8xl lg:text-[7.5rem] leading-none text-cyan-400 whitespace-nowrap drop-shadow-lg">CÔNG NGHỆ SỐ</span>
-              <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white">TỈNH KHÁNH HÒA</span>
-              <span className="block text-xl sm:text-3xl md:text-4xl lg:text-5xl text-cyan-400 mt-2">NĂM 2026</span>
-            </h1>
-          </div>
-
-
-
-            {/* Dòng thời gian & địa điểm */}
-            <div className="mt-8 sm:mt-12 text-xs sm:text-sm md:text-base font-semibold uppercase text-slate-100 tracking-wider sm:tracking-widest drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] flex flex-wrap items-center justify-center">
-              {(() => {
-                const fullText = '24 – 26 THÁNG 10, 2026 • QUẢNG TRƯỜNG 2/4, TP. NHA TRANG'
-                const words = fullText.split(' ')
-                let cumulativeIndex = 0
-
-                return words.map((word, wIdx) => (
-                  <span key={wIdx} className="inline-block whitespace-nowrap mr-[0.35em]">
-                    {word.split('').map((char, cIdx) => {
-                      const charDelay = 650 + cumulativeIndex * 22
-                      cumulativeIndex++
-
-                      return (
-                        <span
-                          key={cIdx}
-                          className={`inline-block ${char === '•' ? 'text-cyan-400 font-bold' : ''}`}
-                          style={{
-                            opacity: 0,
-                            animation: isVisible
-                              ? `heroWaveRise 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) ${charDelay}ms both`
-                              : 'none',
-                          }}
-                        >
-                          {char}
-                        </span>
-                      )
-                    })}
-                  </span>
-                ))
-              })()}
-            </div>
-
-          </div>
-        </div>
-
-      {/* === Bottom Scroll Indicator === */}
-      <div className="relative z-20 w-full pb-8 flex justify-center">
-        <button
-          onClick={scrollToStatement}
-          className="group flex flex-col items-center gap-1.5 text-white/40 hover:text-cyan-300 transition-all duration-300 cursor-pointer"
-          aria-label="Cuộn xuống nội dung"
+        {/* ================= SCROLL INDICATOR ================= */}
+        <div
+          className="
+            relative
+            z-20
+            hidden
+            w-full
+            justify-center
+            pb-8
+            md:flex
+          "
         >
-          <span className="text-[10px] uppercase font-medium tracking-[0.2em] group-hover:tracking-[0.3em] transition-all duration-300">
-            Khám Phá
-          </span>
-          <ChevronDown className="w-5 h-5 animate-bounce" />
-        </button>
+          <button
+            type="button"
+            onClick={scrollToStatement}
+            aria-label={
+              isEnglish
+                ? 'Scroll to content'
+                : 'Cuộn xuống nội dung'
+            }
+            className="
+              pointer-events-auto
+              group
+              flex
+              cursor-pointer
+              flex-col
+              items-center
+              gap-1.5
+              text-white/40
+              transition-all
+              duration-300
+              hover:text-cyan-300
+            "
+          >
+            <span
+              className="
+                text-[10px]
+                font-medium
+                uppercase
+                tracking-[0.2em]
+                transition-all
+                duration-300
+                group-hover:tracking-[0.3em]
+              "
+            >
+              {isEnglish ? 'Explore' : 'Khám Phá'}
+            </span>
+            <ChevronDown className="h-5 w-5 animate-bounce" />
+          </button>
+        </div>
       </div>
-
-      {/* === Inline Keyframe Animations === */}
-      <style>{`
-        @keyframes heroWaveRise {
-          0% {
-            opacity: 0;
-            transform: translateY(28px);
-          }
-          65% {
-            opacity: 1;
-            transform: translateY(-3px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes heroOrbFloat {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -20px) scale(1.05); }
-          66% { transform: translate(-20px, 15px) scale(0.95); }
-        }
-        @keyframes heroOrbPulse {
-          0%, 100% { opacity: 0.08; transform: translate(-50%, -50%) scale(1); }
-          50% { opacity: 0.15; transform: translate(-50%, -50%) scale(1.1); }
-        }
-      `}</style>
     </section>
   )
 }
