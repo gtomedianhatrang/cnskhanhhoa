@@ -4,7 +4,7 @@ export const heroData = {
   brandSubtitle: 'CNS KHÁNH HÒA',
   taglinePrimary: 'KIẾN TẠO TƯƠNG LAI SỐ —',
   taglineHighlight: 'BỨT PHÁ CÙNG AI & ROBOTICS',
-  description: 'Diễn đàn hội tụ các tập đoàn công nghệ tiên phong, nhà đầu tư quốc tế và giải pháp đột phá thúc đẩy chuyển đổi số toàn diện cho Tỉnh Khánh Hòa.',
+  description: 'Diễn đàn hội tụ các tập đoàn công nghệ tiên phong, nhà đầu tư quốc tế và giải pháp đột phá thúc đẩy chuyển đổi số toàn diện cho tỉnh Khánh Hòa.',
   primaryButton: 'Khám Phá Ngay',
   secondaryButton: 'Xem Chương Trình',
   dateLocation: '26 - 29 THÁNG 5 · TRUNG TÂM HỘI NGHỊ TỈNH KHÁNH HÒA',

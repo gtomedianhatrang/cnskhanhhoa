@@ -60,11 +60,11 @@ export function IntroSection() {
         {/* Intro Section Content */}
         {/* ======================================================== */}
         <div>
-          <div className="text-center max-w-4xl mx-auto mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold leading-tight tracking-tight mb-8 text-transparent bg-clip-text bg-linear-to-r from-blue-700 via-blue-500 to-cyan-500">
+          <div className="text-center w-full mx-auto mb-20">
+            <h2 className="max-w-4xl mx-auto text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-extrabold leading-tight tracking-tight mb-8 text-transparent bg-clip-text bg-linear-to-r from-blue-700 via-blue-500 to-cyan-500">
               {statement.eventName}
             </h2>
-            <p className="text-xl md:text-2xl text-slate-700 leading-relaxed font-medium">
+            <p className="w-full max-w-[1040px] mx-auto text-xl md:text-2xl text-slate-700 leading-relaxed font-medium">
               {statement.textBefore} <span className="font-black text-blue-600 drop-shadow-sm">{statement.sessionsHighlight}</span> {statement.textMiddle} <span className="font-bold text-slate-900">{statement.textAfter}</span>
             </p>
           </div>
