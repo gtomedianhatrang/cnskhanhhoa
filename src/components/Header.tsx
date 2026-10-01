@@ -100,52 +100,10 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
           : 'bg-transparent text-white border-b-0 border-transparent shadow-none py-5 sm:py-6'
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-between">
-        {/* Left: Brand Logo & Text */}
-        <div className="flex items-center shrink-0">
-          <a href="/" className="flex items-center gap-2.5 sm:gap-3 group">
-            <img 
-              src="/logo.png" 
-              alt="CNS Khánh Hòa" 
-              className="h-10 sm:h-11 md:h-11 lg:h-13 w-auto object-contain transition-transform group-hover:scale-105" 
-            />
-            <span 
-              className={`font-display text-lg lg:text-2xl font-black tracking-wider transition-colors hidden lg:inline-block ${
-                isScrolled ? 'text-blue-600' : 'text-white'
-              }`}
-            >
-              CÔNG NGHỆ SỐ
-            </span>
-          </a>
-        </div>
-
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 flex items-center justify-end">
         <div className="flex items-center gap-2 md:gap-0">
-          {/* Right Navigation Menu - Visible on Tablet (md: >=768px) and Desktop */}
-          <nav className="hidden md:flex items-center space-x-3 md:space-x-4 lg:space-x-6 xl:space-x-8 text-[11px] lg:text-xs uppercase tracking-wider lg:tracking-widest mr-3 md:mr-4 lg:mr-6">
-            {header.nav.map((item) => {
-              const isActive = activeNav === item.key
-              return (
-                <button
-                  key={item.key}
-                  onClick={() => scrollToSection(item.targetId, item.key)}
-                  className={`py-1 transition-colors cursor-pointer whitespace-nowrap ${
-                    isScrolled
-                      ? isActive
-                        ? 'text-blue-600 font-black'
-                        : 'text-slate-500 hover:text-blue-600 font-bold'
-                      : isActive
-                        ? 'text-blue-400 font-black'
-                        : 'text-white/70 hover:text-blue-400 font-bold'
-                  }`}
-                >
-                  <span>{item.label}</span>
-                </button>
-              )
-            })}
-          </nav>
-
           {/* Language Dropdown Selector */}
-          <div className="relative md:pl-4 md:border-l border-slate-300 dark:border-white/20 notranslate shrink-0" translate="no" ref={langDropdownRef}>
+          <div className="relative notranslate shrink-0" translate="no" ref={langDropdownRef}>
             <button 
               type="button"
               onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
@@ -217,11 +175,7 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
           />
           {/* Drawer Sheet */}
           <div className="absolute inset-y-0 right-0 w-full max-w-sm bg-slate-950 p-6 flex flex-col justify-between text-white shadow-2xl animate-in slide-in-from-right duration-300">
-            <div className="flex items-center justify-between pb-5 border-b border-slate-800">
-              <div className="flex items-center gap-3">
-                <img src="/logo.png" alt="CNS Khánh Hòa" className="h-9 w-auto object-contain" />
-                <span className="font-display text-base font-bold tracking-wider">CÔNG NGHỆ SỐ</span>
-              </div>
+            <div className="flex items-center justify-end pb-5 border-b border-slate-800">
               <button 
                 onClick={() => setIsMobileMenuOpen(false)} 
                 className="p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
@@ -231,24 +185,8 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
               </button>
             </div>
             
-            <div className="flex flex-col space-y-4 text-sm font-bold uppercase tracking-widest py-6 overflow-y-auto">
-              {header.nav.map((item) => (
-                <button 
-                  key={item.key}
-                  onClick={() => { setIsMobileMenuOpen(false); scrollToSection(item.targetId, item.key) }}
-                  className={`text-left py-2.5 px-3 rounded-xl transition-colors ${
-                    activeNav === item.key 
-                      ? 'bg-blue-600/20 text-blue-400 font-black' 
-                      : 'text-slate-300 hover:bg-white/5 hover:text-blue-400'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-            
             {/* Mobile Language Switcher */}
-            <div className="grid grid-cols-2 gap-2 pt-4 border-t border-slate-800 notranslate" translate="no">
+            <div className="grid grid-cols-2 gap-2 pt-4 notranslate mt-auto" translate="no">
               {LANGUAGE_OPTIONS.map((opt) => {
                 const isSelected = currentLang === opt.code
                 return (
