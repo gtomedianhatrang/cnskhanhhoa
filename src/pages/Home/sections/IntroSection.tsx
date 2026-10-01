@@ -95,6 +95,25 @@ export function IntroSection() {
             ))}
           </div>
         </div>
+
+        {/* Video Trailer Window */}
+        <div className="mt-20 max-w-4xl mx-auto relative z-10">
+          <div className="rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-900">
+            <div className="relative aspect-video">
+              <iframe 
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/yVdRwxtYSww?autoplay=0&rel=0" 
+                title="Trailer Ngày Hội Công Nghệ Số"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+          <p className="text-center text-sm font-bold text-slate-500 mt-4 uppercase tracking-widest">
+            Video Trailer Sự Kiện
+          </p>
+        </div>
+
       </div>
     </section>
   )
