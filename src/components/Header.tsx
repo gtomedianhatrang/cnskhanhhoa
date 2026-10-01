@@ -1,70 +1,33 @@
 import { useState, useEffect, useRef } from 'react'
-import { Globe, X, Menu, ChevronDown } from 'lucide-react'
-import { siteData } from '@/data'
-import { useUIStore, type NavKey } from '@/store'
+import { Globe, ChevronDown } from 'lucide-react'
+import { useUIStore } from '@/store'
 import { LANGUAGE_OPTIONS } from '@/utils/translator'
 
-export type { NavKey }
-
-interface HeaderProps {
-  activeNav?: NavKey
-  onNavChange?: (nav: NavKey) => void
-}
-
-export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
+export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false)
   const langDropdownRef = useRef<HTMLDivElement>(null)
 
   const {
-    activeNav: storeActiveNav,
-    setActiveNav,
-    isMobileMenuOpen,
-    setIsMobileMenuOpen,
     currentLang,
     setCurrentLang,
   } = useUIStore()
 
-  const activeNav = propActiveNav || storeActiveNav
-  const { header } = siteData
-
-  // Detect scroll to transition header to fixed white background and update active nav
+  // Detect scroll to transition header to fixed white background
   useEffect(() => {
     const handleScroll = () => {
-      // 1. Header visual transition
       if (window.scrollY > 30) {
         setIsScrolled(true)
       } else {
         setIsScrolled(false)
       }
-
-      // 2. Active section ScrollSpy
-      const sections = header.nav.map(item => ({
-        key: item.key,
-        element: document.getElementById(item.targetId)
-      }))
-
-      let currentActiveKey = header.nav[0]?.key || 'home'
-      
-      for (const section of sections) {
-        if (section.element) {
-          const rect = section.element.getBoundingClientRect()
-          // 150px offset to trigger slightly before the section hits the very top
-          if (rect.top <= 150) {
-            currentActiveKey = section.key
-          }
-        }
-      }
-
-      setActiveNav(currentActiveKey)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    // Initial check
     handleScroll()
     
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [header.nav, setActiveNav])
+  }, [])
 
   // Close language dropdown on outside click
   useEffect(() => {
@@ -76,21 +39,6 @@ export function Header({ activeNav: propActiveNav, onNavChange }: HeaderProps) {
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
-
-  const scrollToSection = (id: string, navKey: NavKey) => {
-    setActiveNav(navKey)
-    if (onNavChange) {
-      onNavChange(navKey)
-    }
-    if (id === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-      return
-    }
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
 
   return (
     <header 
