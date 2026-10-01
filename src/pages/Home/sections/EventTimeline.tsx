@@ -169,7 +169,7 @@ export function EventTimeline() {
 
             sm:gap-4
 
-            md:grid-cols-4
+            md:grid-cols-3
           "
         >
           {timeline.days.map((day) => {
